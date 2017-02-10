@@ -22,12 +22,12 @@ function makeComboBox(src) {
     var race = src.l[i];
     if (src.l[i].list.length < 2) {
       var sbr = race.list[0];
-      ret+="<label for='ch_"+sbr.name+"'><input type='checkbox' value='"+race.name+" "+sbr.name+"' id='ch_"+sbr.name+"'>"+sbr.title+"</label>";
+      ret+="<label for='ch_"+sbr.name+"' title='"+sbr.tooltip+"'><input type='checkbox' value='"+race.name+" "+sbr.name+"' id='ch_"+sbr.name+"'>"+sbr.title+"</label>";
     } else {
-      ret+= "<label for='ch_"+race.name+"'><input type='checkbox' value='"+race.name+"' id='ch_"+race.name+"' data-root='"+race.name+"'>"+race.title+"</label>";
+      ret+= "<label for='ch_"+race.name+"' title='"+sbr.tooltip+"'><input type='checkbox' value='"+race.name+"' id='ch_"+race.name+"' data-root='"+race.name+"'>"+race.title+"</label>";
       for(var j in race.list) {
         var sbr = race.list[j];
-        ret+= "<label for='ch_"+sbr.name+"'><input type='checkbox' value='"+sbr.name+"' id='ch_"+sbr.name+"' data-parent='"+race.name+"'>"+sbr.title+"</label>";
+        ret+= "<label for='ch_"+sbr.name+"' title='"+sbr.tooltip+"'><input type='checkbox' value='"+sbr.name+"' id='ch_"+sbr.name+"' data-parent='"+race.name+"'>"+sbr.title+"</label>";
       }
     }
 
@@ -46,6 +46,7 @@ var items = {
 				{
 					"name": "trinkets",
 					"title": "Безделушки",
+					"tooltip": "DND 5, Players Hand Book, 100 безделушек",
 					"schemes": [
 						"list"
 					],
@@ -66,6 +67,7 @@ var items = {
 				{
 					"name": "magicitems",
 					"title": "Магические вещи",
+					"tooltip": "Русские народные родимые...",
 					"schemes": [
 						"list"
 					],
