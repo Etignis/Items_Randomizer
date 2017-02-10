@@ -1,0 +1,165 @@
+@vpad: .4em;
+
+#result, #items{
+    padding: @vpad 0;
+}
+#result{
+    td, th{
+        padding: .2em;
+    }
+    th{
+        background: @l-gray - #222;
+        color: @d-gray - #111;
+    }
+}
+
+#panel{
+    padding-bottom: .2em;
+    .bt{
+        width: 100%;
+        text-align: center;
+        margin: .2em 0;
+        padding: @vpad .1em;
+    }
+    .inpt{
+        .fr-concave;
+        background: @white;
+        color: @black;
+        text-align: center;
+        margin: .1em .2em;
+        padding: @vpad + 0.2em .1em;
+        width: 100%;        
+    }
+}
+
+
+
+.combo_box{
+    position: relative;
+    /*
+    float: none;
+    clear: both;
+    overflow: hidden;
+    */
+    
+    
+    &:after, &:before{
+        content: "";
+        .clear();
+    }
+    
+    
+    input[type=checkbox]{
+        &[data-parent]{
+            margin-left: 1.5em;
+        }
+    }
+    label{
+       //float: left;
+       display: block;
+       padding: .2em 0;
+       .noselect();
+       &:hover{
+            background: @l-gray - #111;
+            cursor: pointer;
+        }
+    }
+    
+    .combo_box_content{
+        background: @l-gray;
+        padding: .3em 0;
+    }
+}
+
+.combo_box_arrow{
+        .fr-convex(0, 0, @r-rad, @r-rad);
+        margin: 0;
+        padding:@vpad .2em;
+        text-align: center;
+    
+    &:hover{
+        background: @color - #222;
+    }
+    
+    &:active{
+        .fr-concave(0, 0, @r-rad, @r-rad);
+        margin: 0;
+        padding:@vpad .2em;
+    }
+}
+.combo_box_title{
+    .fr-convex(@r-rad, @r-rad, 0, 0);
+    font-weight: bold; 
+    margin: 0;
+    padding:@vpad .2em;
+    text-align: center;
+        
+    &:hover{
+        background: @color - #222;
+    }
+    
+    &:active{
+        .fr-concave(@r-rad, @r-rad, 0, 0);
+        margin: 0;
+        padding:@vpad .2em;
+    }
+}
+.center{
+    text-align: center;
+}
+.bt{
+    padding: .2em .3em;
+    margin: .2em;
+}
+
+.bt[disabled]{
+    background: @l-gray + #111;
+    color: @l-gray - #111;
+    &:hover{
+        background: @l-gray + #111;    
+    }
+}
+
+
+.warn{
+    color: red;
+    .transit(color, .3s);
+}
+
+
+@media only screen and (min-width: 450px) {	
+    
+    #panel{
+        button, .bt{
+            //min-height: 3em;
+            display: inline-block;
+            //width: 50%;
+            width: 48.5%;
+            float: none;
+            margin: .2em .2em;
+            padding: .4em;
+        }
+        .inpt{
+            width: 48.5%;
+        }
+    }
+}
+
+@media only screen and (min-width: 700px) {	
+    #items, #result{
+        margin: 0;
+        float: left;
+        width: 50%;
+        padding: 0 .3rem;
+    } 
+    
+    #panel{
+        button, .bt{
+            display: inline-block;
+            width: auto;
+        }
+        .inpt{
+            width: 4em;
+        }   
+    }
+}
