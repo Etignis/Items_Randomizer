@@ -17,6 +17,7 @@
 				}
 			],
 			"sources": [
+				"bg.less",
 				"frame.less",
 				"grid.less",
 				"names.less",

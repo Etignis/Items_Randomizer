@@ -501,8 +501,60 @@ th {
     display: inline-block;
     width: auto;
   }
+  #panel button#go,
+  #panel .bt#go {
+    margin-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
   #panel .inpt {
     width: 4em;
+    margin-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left-width: 0;
+  }
+}
+.background {
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
+@media only screen and (min-width: 450px) {
+  body,
+  .bg_custom {
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-image: url(../img/bg_custom.png);
+  }
+  .bg_effects {
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-image: url(../img/bg_effects.png);
+  }
+  .bg_loot {
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-image: url(../img/bg_loot.png);
+  }
+  .bg_magic {
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-image: url(../img/bg_magic.png);
+  }
+  .bg_maps {
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-image: url(../img/bg_maps.png);
+  }
+  .bg_tressure {
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-image: url(../img/bg_tressure.png);
+  }
+  .bg_encounters {
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-image: url(../img/bg_encounters.png);
   }
 }
 

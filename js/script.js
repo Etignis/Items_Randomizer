@@ -18,19 +18,17 @@ function makeComboBox(src) {
 	var ARR_UP = '<i class="fa fa-arrow-up"></i>';
 	var arrow="<div class='combo_box_arrow'>"+ARR_UP+"</div>";
 	for (var i in src.l) {
-		//console.dir(src.l[race]);
-    var race = src.l[i];
-    if (src.l[i].list.length < 2) {
-      var sbr = race.list[0];
-      ret+="<label for='ch_"+sbr.name+"' title='"+sbr.tooltip+"'><input type='checkbox' value='"+race.name+" "+sbr.name+"' id='ch_"+sbr.name+"'>"+sbr.title+"</label>";
-    } else {
-      ret+= "<label for='ch_"+race.name+"'><input type='checkbox' value='"+race.name+"' id='ch_"+race.name+"' data-root='"+race.name+"'>"+race.title+"</label>";
-      for(var j in race.list) {
-        var sbr = race.list[j];
-        ret+= "<label for='ch_"+sbr.name+"' title='"+sbr.tooltip+"'><input type='checkbox' value='"+sbr.name+"' id='ch_"+sbr.name+"' data-parent='"+race.name+"'>"+sbr.title+"</label>";
-      }
-    }
-
+		var type = src.l[i];
+		if (src.l[i].list.length < 2) {
+		  var subtype = type.list[0];
+		  ret+="<label for='ch_"+subtype.name+"' title='"+subtype.tooltip+"' data-bg='"+type.bg+"' data-hierarchy='root'><input type='checkbox' value='"+type.name+" "+subtype.name+"' id='ch_"+subtype.name+"'>"+subtype.title+"</label>";
+		} else {
+		  ret+= "<label for='ch_"+type.name+"' data-bg='"+type.bg+"' data-hierarchy='root'><input type='checkbox' value='"+type.name+"' id='ch_"+type.name+"' data-root='"+type.name+"'>"+type.title+"</label>";
+		  for(var j in type.list) {
+			var subtype = type.list[j];
+			ret+= "<label for='ch_"+subtype.name+"' title='"+subtype.tooltip+"' data-bg='"+type.bg+"' data-hierarchy='child'><input type='checkbox' value='"+subtype.name+"' id='ch_"+subtype.name+"' data-parent='"+type.name+"'>"+subtype.title+"</label>";
+		  }
+		}
 	}
 	ret = "<div id='selector' class='combo_box' data-text='Выберите список'><div class='combo_box_title'>Выберите список</div><div class='combo_box_content'>"+ret+"</div>"+arrow+"</div>";
 	//$("body").html(ret);
@@ -42,6 +40,7 @@ var items = {
 		{
 		"name": "trinkets",
 		"title": "Вещички",
+		"bg": "bg_loot",
 		"list": [
 				{
 					"name": "things",
@@ -93,6 +92,7 @@ var items = {
 		{
 		"name": "artefacts",
 		"title": "Артефакты",
+		"bg": "bg_magic",
 		"list": [
 				{
 					"name": "magicitems",
@@ -114,6 +114,7 @@ var items = {
 		{
 		"name": "treasures",
 		"title": "Сокровища",
+		"bg": "bg_tressure",
 		"list": [
 				{
 					"name": "unictreasure",
@@ -135,6 +136,7 @@ var items = {
 		{
 		"name": "encounters",
 		"title": "События",
+		"bg": "bg_encounters",
 		"list": [
 				{
 					"name": "en1",
@@ -186,6 +188,7 @@ var items = {
 		{
 		"name": "places",
 		"title": "Места",
+		"bg": "bg_maps",
 		"list": [
 				{
 					"name": "dangerooms",
@@ -207,6 +210,7 @@ var items = {
 		{
 		"name": "effects",
 		"title": "Эффекты",
+		"bg": "bg_effects",
 		"list": [
 				{
 					"name": "dangerooms",
@@ -307,15 +311,16 @@ $("body").on('click', ".combo_box_title, .combo_box_arrow", function(){
 		}
 	});
 // get item
-$("body").on('click', ".combo_box label", function(){
+function onSelectItemPress(src) {
 	var d_root='', d_parent='', trig=true;
-	d_root = $(this).find("input[type=checkbox]").attr("data-root");
-	d_parent = $(this).find("input[type=checkbox]").attr("data-parent");
-	if($(this).find("input[type=checkbox]").prop("checked"))
+	
+	d_root = src.find("input[type=checkbox]").attr("data-root");
+	d_parent = src.find("input[type=checkbox]").attr("data-parent");
+	if(src.find("input[type=checkbox]").prop("checked"))
 		{
 		trig=false;
 		}
-	$(this).find("input[type=checkbox]").prop("checked", trig);
+	src.find("input[type=checkbox]").prop("checked", trig);
 	/**/
 	if(d_root!='' && d_root!=undefined)
 	{
@@ -416,10 +421,40 @@ $("body").on('click', ".combo_box label", function(){
 		});
 
 		if($(".combo_box_title").html()=='')
-			$(".combo_box_title").html($(this).closest(".combo_box").attr('data-text'));
+			$(".combo_box_title").html(src.closest(".combo_box").attr('data-text'));
 
-		// data-parent="human"
 	/**/
+	
+	
+	// bg
+	
+	//var fChecked = $(this).find("input:checked").length>0? true: false;
+	//var bg = $(this).attr("data-bg");
+	var bg = $("#selector").find("label[data-bg] input:checked").eq(0).parent().attr("data-bg");
+	var leng = $("#selector").find("label[data-bg] input:checked").length;
+	$("#selector").find("label[data-bg] input:checked").each(function(){
+		if ($(this).parent().attr("data-bg") != bg){
+			leng = 0;
+		}
+	});
+	if(bg && leng>0) {
+		$("body").attr("class", bg);
+	} else {
+		$("body").attr("class", "");
+	}
+		
+	// bg /
+	return false;
+}
+$("body").on('click', ".combo_box input", function(){
+	var checked = $(this).prop("checked");
+	$(this).prop("checked", !checked);
+	onSelectItemPress($(this).parent("label"));
+	return false;
+});
+$("body").on('click', ".combo_box label", function(){
+	
+	onSelectItemPress($(this));
 	return false;
 });
 
