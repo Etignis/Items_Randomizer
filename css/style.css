@@ -509,6 +509,7 @@ th {
   }
   #panel .inpt {
     width: 4em;
+    margin: 0.0rem 0.2rem;
     margin-left: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -518,6 +519,9 @@ th {
 .background {
   background-position: bottom right;
   background-repeat: no-repeat;
+}
+#pre_bg {
+  display: none;
 }
 @media only screen and (min-width: 450px) {
   body,

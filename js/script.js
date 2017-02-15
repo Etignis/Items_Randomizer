@@ -1,3 +1,7 @@
+
+	var ARR_DOWN = '<i class="fa fa-arrow-down"></i>';
+	var ARR_UP = '<i class="fa fa-arrow-up"></i>';
+
 function exist(elem) {
   (elem.length>0) ? true : false;
 }
@@ -12,10 +16,42 @@ function shuffle(o){
     return o;
 };
 
+function getViewPortSize(mod)
+{
+    var viewportwidth;
+    var viewportheight;
+
+    //Standards compliant browsers (mozilla/netscape/opera/IE7)
+    if (typeof window.innerWidth != 'undefined')
+    {
+        viewportwidth = window.innerWidth,
+        viewportheight = window.innerHeight
+    }
+
+    // IE6
+    else if (typeof document.documentElement != 'undefined'
+    && typeof document.documentElement.clientWidth !=
+    'undefined' && document.documentElement.clientWidth != 0)
+    {
+        viewportwidth = document.documentElement.clientWidth,
+        viewportheight = document.documentElement.clientHeight
+    }
+
+    //Older IE
+    else
+    {
+        viewportwidth = document.getElementsByTagName('body')[0].clientWidth,
+        viewportheight = document.getElementsByTagName('body')[0].clientHeight
+    }
+
+	if(mod=="width")
+		return viewportwidth;
+	
+    return viewportwidth + "~" + viewportheight;
+}
+
 function makeComboBox(src) {
 	var ret = '';
-	var ARR_DOWN = '<i class="fa fa-arrow-down"></i>';
-	var ARR_UP = '<i class="fa fa-arrow-up"></i>';
 	var arrow="<div class='combo_box_arrow'>"+ARR_UP+"</div>";
 	for (var i in src.l) {
 		var type = src.l[i];
@@ -262,6 +298,12 @@ function make_page() {
 		"<a class='bt' id='info'><i class='fa fa-question-circle'></i></a>";
 
   $('body').html("<div id='panel'>"+generator+"</div>"+out)
+  
+  if(getViewPortSize("width") > 450) {
+	  var pre_bg = "<div id='pre_bg' style='display: none'><img src='img/bg_custom.png'><img src='img/bg_effects.png'><img src='img/bg_loot.png'><img src='img/bg_magic.png'><img src='img/bg_maps.png'><img src='img/bg_tressure.png'><img src='img/bg_encounters.png'></div>";
+	  
+	  $('body').append(pre_bg);
+  }
 }
 
 function make_item(src, type, subtype) {
@@ -294,22 +336,20 @@ $(window).load(function(){
 // init page controlls
 make_page();
 
-
-
 // open/close combobox
 $("body").on('click', ".combo_box_title, .combo_box_arrow", function(){
-		var el = $(this).closest(".combo_box").find(".combo_box_content");
-		if(el.is(":visible"))
-		{
-			el.slideUp();
-			el.next(".combo_box_arrow").html(ARR_DOWN);
-		}
-		else
-		{
-			el.slideDown();
-			el.next(".combo_box_arrow").html(ARR_UP);
-		}
-	});
+	var el = $(this).closest(".combo_box").find(".combo_box_content");
+	if(el.is(":visible"))
+	{
+		el.slideUp();
+		el.next(".combo_box_arrow").html(ARR_DOWN);
+	}
+	else
+	{
+		el.slideDown();
+		el.next(".combo_box_arrow").html(ARR_UP);
+	}
+});
 // get item
 function onSelectItemPress(src) {
 	var d_root='', d_parent='', trig=true;
