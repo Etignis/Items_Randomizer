@@ -290,11 +290,11 @@ function make_page() {
 
 	var out='';
 	var out = "<div class='row'><div id='items'>"+comboBox+"</div><div id='result'></div></div>";
-	generator="<a href='http://youknowwho.ru/dnd' class='bt'><i class='fa fa-home'></i></a>"+
+	generator="<a href='/' class='bt'><i class='fa fa-home'></i></a>"+
 		"<a class='bt' id='go' title='Выберите список ниже' disabled>Сгенерировать</a>"+
 		"<input id='quantity' type='number' class='inpt' value='5' min='1' max='40' title='Количество сгенерированных вещей'/>"+
 		"<a class='bt' id='addList' title='Задать список'>Задать список</a>"+
-		'<a class="bt" href="http://www.youknowwho.ru/message/?theme=dnditems" target="_blank">Написать отзыв или предложение</a>'+
+		'<a class="bt" href="/message/?theme=dnditems" target="_blank">Написать отзыв или предложение</a>'+
 		"<a class='bt' id='info'><i class='fa fa-question-circle'></i></a>";
 
   $('body').html("<div id='panel'>"+generator+"</div>"+out)
