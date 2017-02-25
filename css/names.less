@@ -3,9 +3,36 @@
 #result, #items{
     padding: @vpad 0;
 }
-#result{
+#result{    
+    counter-reset: result - 1;
+    margin-left: 1.7rem;
     td, th{
         padding: .2em;
+    }
+    tr{        
+        counter-increment: result;
+    }
+    td{
+        //padding-left: 2em;
+        
+        position: relative;
+        
+        &:before{
+            content: counter(result);
+            position: absolute;
+            width: 1.5rem;
+            display: block;
+            text-align: right;
+            left: -1.7rem;
+            top: 0.1em;    
+            
+            color: @l-gray;
+            text-shadow: 0 1px 2px rgba(0,0,0,.4),  
+                0 -1px 2px rgba(0,0,0,.4), 
+                1px 0px 2px rgba(0,0,0,.4), 
+                -1px 0px 2px rgba(0,0,0,.4);
+            font-weight: bold;
+        }
     }
     th{
         background: @l-gray - #222;
@@ -14,22 +41,25 @@
 }
 
 #panel{
-    padding-bottom: .2em;
-    .bt{
+    padding-bottom: .2rem;
+    .bt, .inpt{
         width: 100%;
         text-align: center;
-        margin: .2em 0;
-        padding: @vpad .1em;
+        margin: .2rem 0;
+        padding: @vpad .1rem;
     }
+    /*
     .inpt{
-        .fr-concave;
-        background: @white;
-        color: @black;
+        //.fr-concave;
+        .fr-convex;
+        
+        width: 100%;
         text-align: center;
-        margin: .1em .2em;
-        padding: @vpad + 0.2em .1em;
-        width: 100%;        
+        margin: .2rem 0;
+        padding: @vpad .1rem;
+        
     }
+    */
 }
 
 
@@ -107,9 +137,9 @@
 .center{
     text-align: center;
 }
-.bt{
-    padding: .2em .3em;
-    margin: .2em;
+.bt, .inpt{
+    padding: .2rem .3rem;
+    margin: .2rem;
 }
 
 .bt[disabled]{
@@ -130,18 +160,22 @@
 @media only screen and (min-width: 450px) {	
     
     #panel{
-        button, .bt{
+        button, .bt, .inpt{
             //min-height: 3em;
             display: inline-block;
             //width: 50%;
             width: 48.5%;
             float: none;
+            margin: .2rem .2rem;
+            padding: .4rem;
+        }
+        /*
+        .inpt{
             margin: .2em .2em;
             padding: .4em;
-        }
-        .inpt{
             width: 48.5%;
         }
+        */
     }
 }
 
@@ -154,23 +188,23 @@
     } 
     
     #panel{
-        button, .bt{
+        button, .bt, .inpt{
             display: inline-block;
             width: auto;
-            
+            font-size: 1rem;
+        }
+        .bt{            
             &#go{
                 margin-right: 0;
                 border-top-right-radius: 0;
                 border-bottom-right-radius: 0;
-            }
+            }    
         }
         .inpt{
-            width: 4em;
-                margin: 0.0rem 0.2rem;
-                margin-left: 0;
-                border-top-left-radius: 0;
-                border-bottom-left-radius: 0;
-                border-left-width: 0; 
+            margin-left: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-left-width: 0; 
         }   
     }
 }

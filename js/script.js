@@ -297,7 +297,7 @@ function make_page() {
 		'<a class="bt" href="/message/?theme=dnditems" target="_blank">Написать отзыв или предложение</a>'+
 		"<a class='bt' id='info'><i class='fa fa-question-circle'></i></a>";
 
-  $('body').html("<div id='panel'>"+generator+"</div>"+out)
+  $('body').html("<div id='panel'>"+generator+"</div>"+out);
   
   if(getViewPortSize("width") > 450) {
 	  var pre_bg = "<div id='pre_bg' style='display: none'><img src='img/bg_custom.png'><img src='img/bg_effects.png'><img src='img/bg_loot.png'><img src='img/bg_magic.png'><img src='img/bg_maps.png'><img src='img/bg_tressure.png'><img src='img/bg_encounters.png'></div>";
