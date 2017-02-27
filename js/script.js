@@ -264,7 +264,7 @@ var items = {
 		"bg": "bg_effects",
 		"list": [
 				{
-					"name": "dangerooms",
+					"name": "wonder_stick",
 					"title": "Эффекты жезла чудес",
 					"tooltip": "DM Gems, Альтернативные 'чудеса' для Жезла Чудес, 100 вариантов",
 					"schemes": [
@@ -454,7 +454,7 @@ function onSelectItemPress(src) {
 		// обычный пункт
 		if(d_parent==undefined && d_root==undefined)
 			{
-			txt = $(this).parent("label").text();
+			txt = $(this).next("label").text();
 			title_value = $(".combo_box_title").attr("data-val");
 			value = $(this).attr('value');
 			dp = $(this).attr('data-parent');
@@ -467,7 +467,7 @@ function onSelectItemPress(src) {
 				// если есть отмеченные потомки
 			if($("input[type=checkbox][data-parent="+d_root+"]:checked").length>0)
 				{
-				txt=$(this).parent("label").text()+" (";
+				txt=$(this).next("label").text()+" (";
 				$(".combo_box_title").append(txt);
 
 				before_root=d_root;
@@ -477,7 +477,7 @@ function onSelectItemPress(src) {
 		if(d_parent!=undefined)
 			{
 
-				txt=$(this).parent("label").text();
+				txt=$(this).next("label").text();
 				title_value = $(".combo_box_title").attr("data-val");
 				value = $(this).attr('value');
 				dp = $(this).attr('data-parent');
