@@ -1,4 +1,6 @@
-# Items
-Рандомизатор вещей
+# Random
+Рандомизатор всего
 
-http://youknowwho.ru/dnd/items/
+Случайные эффекты, события, слухи, вещички.
+
+https://tentaculus.ru/random
