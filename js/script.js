@@ -400,9 +400,10 @@ var items = {
 function make_page() {
 
 	var comboBox = makeComboBox(items);
+	var infoText = $("#info_text").html();
 
 	var out='';
-	var out = "<div class='row'><div id='items'>"+comboBox+"</div><div id='result'></div></div>";
+	var out = "<div class='row'><div id='items'>"+comboBox+"</div><div id='result'><div class='info_text'>"+infoText+"</div></div></div>";
 	generator="<a href='/' class='bt'><i class='fa fa-home'></i></a>"+
 		"<a class='bt' id='go' title='Выберите список ниже' disabled>Сгенерировать</a>"+
 		"<input id='quantity' type='number' class='inpt' value='5' min='1' max='40' title='Количество сгенерированных вещей'/>"+
@@ -410,12 +411,12 @@ function make_page() {
 		'<a class="bt" href="/message/?theme=dnditems" target="_blank">Написать отзыв или предложение</a>'+
 		"<a class='bt' id='info'><i class='fa fa-question-circle'></i></a>";
 
-  $('body').html("<div id='panel'>"+generator+"</div>"+out);
+  $('#wrapper').html("<div id='panel'>"+generator+"</div>"+out);
   
   if(getViewPortSize("width") > 450) {
 	  var pre_bg = "<div id='pre_bg' style='display: none'><img src='img/bg_custom.png'><img src='img/bg_effects.png'><img src='img/bg_loot.png'><img src='img/bg_magic.png'><img src='img/bg_maps.png'><img src='img/bg_tressure.png'><img src='img/bg_encounters.png'></div>";
 	  
-	  $('body').append(pre_bg);
+	  $('#wrapper').append(pre_bg).after("<div id='bgImg' class='background bg_custom'></div>");
   }
 }
 
@@ -592,9 +593,9 @@ function onSelectItemPress(src) {
 		}
 	});
 	if(bg && leng>0) {
-		$("body").attr("class", bg);
+		$("#bgImg").addClass(bg);
 	} else {
-		$("body").attr("class", "");
+		$("#bgImg").attr("class", "bg_custom");
 	}
 		
 	// bg /

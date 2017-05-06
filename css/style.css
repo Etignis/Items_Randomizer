@@ -88,11 +88,12 @@ body {
   background-color: #222;
   color: #555;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   position: relative;
   font-size: 16px;
   font-family: sans-serif;
-  overflow: auto;
+  overflow: visible;
+  overflow-y: scroll;
 }
 img {
   border: none;
@@ -213,6 +214,23 @@ td {
 }
 th {
   font-weight: bold;
+}
+#wrapper {
+  z-index: 9;
+  position: relative;
+}
+#bgImg {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  left: 0;
+}
+.info_text {
+  padding: 1em;
+  color: #ddd;
+  background: rgba(33, 33, 33, 0.6);
 }
 #result,
 #items {
@@ -638,7 +656,6 @@ th {
   display: none;
 }
 @media only screen and (min-width: 450px) {
-  body,
   .bg_custom {
     background-position: bottom right;
     background-repeat: no-repeat;

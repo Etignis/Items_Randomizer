@@ -15,13 +15,17 @@ body {
 	background-color: @d-gray;
 	color: #555;
 	width: 100%;
-	height: 100%;
+	min-height: 100%;
 	
 	position: relative;
 	
 	font-size: 16px;
 	font-family: sans-serif;
-	overflow: auto;
+	overflow: visible;
+	overflow-y: scroll;
+	
+//	display: flex;
+//	flex-direction: column;
 }
 img{
 	border: none;
@@ -92,4 +96,24 @@ th, td{
 }
 th{
     font-weight: bold;
+}
+
+
+#wrapper{
+    z-index: 9;
+    position: relative;
+}
+#bgImg{
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    left: 0;
+}
+
+.info_text{
+    padding: 1em;
+    color: @l-gray;
+    background: rgba(33,33,33,.6);
 }
