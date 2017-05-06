@@ -377,6 +377,41 @@ th {
   background: #ddd;
   padding: .3em 0;
 }
+.combo_box .selectSection {
+  position: relative;
+}
+.combo_box .selectSection .minimax {
+  z-index: 33;
+  top: 0;
+  right: 0;
+  position: absolute;
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  font-weight: bold;
+  color: #bbbbbb;
+  cursor: pointer;
+  overflow: hidden;
+}
+.combo_box .selectSection .minimax:before {
+  content: "";
+  font-size: 200%;
+  top: -0.3em;
+  right: .2em;
+  position: absolute;
+}
+.combo_box .selectSection .minimax:hover {
+  color: #222;
+}
+.combo_box .selectSection .min:before {
+  content: "-";
+}
+.combo_box .selectSection .max:before {
+  content: "+";
+  font-size: 150%;
+  top: -0.1em;
+  right: .2em;
+}
 .combo_box_arrow {
   -webkit-border-radius: 0 0 3px 3px;
   -moz-border-radius: 0 0 3px 3px;
