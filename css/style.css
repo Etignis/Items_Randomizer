@@ -220,7 +220,7 @@ th {
   position: relative;
 }
 #bgImg {
-  position: absolute;
+  position: fixed;
   z-index: 1;
   bottom: 0;
   right: 0;
