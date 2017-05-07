@@ -761,7 +761,7 @@ $("body").on('click', "#go", function(){
   
   var tmpArr=[];
   
-  dictionary = shuffle(string.split(";").map(function(item){
+  dictionary = string.split(";").map(function(item){
 	 var p = item.match(/{{s*(\d+)s*}}/);
 	 var num = 1;
 	 if(p) {
@@ -772,9 +772,15 @@ $("body").on('click', "#go", function(){
 		}
 	 }
 	 return item;
-  }));
+  });
   
   dictionary = dictionary.concat(tmpArr);
+  
+  
+  while(dictionary.length < number) {
+	 dictionary = dictionary.concat(dictionary);
+  }
+  dictionary = shuffle(dictionary);
   
   for (var i = 0; i < number && i < dictionary.length; i++) {
 	table+="<tr><td>"+dictionary[i].trim()+"</td></tr>";
