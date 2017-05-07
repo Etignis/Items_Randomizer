@@ -230,7 +230,7 @@ var items = {
 		"list": [
 				{
 					"name": "magicitems",
-					"title": "Магические вещи",
+					"title": "Волшебные вещи",
 					"tooltip": "Русские народные родимые...",
 					"schemes": [
 						"list"
