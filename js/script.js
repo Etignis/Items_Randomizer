@@ -768,7 +768,7 @@ $("body").on('click', "#go", function(){
 		num = p[1];
 		item = item.replace(/\s*{{\s*\d+\s*}}\s*/, "");		
 		for(; num>0; num--) {			
-			if(iteml.length > 0)
+			if(item.length > 0)
 				tmpArr.push(item);
 		}
 	 }
