@@ -104,6 +104,89 @@ var items = {
 					]
 				},
 				{
+					"name": "combat_techniques_names",
+					"title": "Названия боевых приемов",
+					"tooltip": "Названия техник",
+					"schemes": [
+						"descript techWithDescript definHe creatureHe",
+						"descript techWithDescript definShe creatureShe",
+						"descript strike byWhat definHe creatureHe",
+						"descript strike byWhat definShe creatureShe",
+						"techHe definHe creatureHe",
+						"techShe definHe creatureHe",
+						"techIt definHe creatureHe",
+						"techThey definHe creatureHe",
+						"techHe definShe creatureShe",
+						"techShe definShe creatureShe",
+						"techIt definShe creatureShe",
+						"techThey definShe creatureShe"
+					],
+					"src": [
+						{
+							"name": "descript",
+							"type": "list",
+							"random": 3,
+							"l": "Обманный;Лучезарный;Каскадный;Заряженный;Скрытый;Тайный;Прямой;Быстрый;Тяжелый;Сносящий;Прицельный;Пробивающий;Приветственный;Потопляющий;Удушающий;Пронзающий;Неостановимый;Прерывающий;Смертоносный"
+						},
+						{
+							"name": "techWithDescript",
+							"type": "list",
+							"l": "Вал ударов; Укус; Бросок; Прыжок; Захват; Кулак;Пинок;Зажим; Рывок; Щипок; Щелчок; Всплеск;Укол;Взмах;Перехват; Выпад; Апперкот;Замах; Хук; Перекат; Кувырок; Залом"
+						},
+						{
+							"name": "strike",
+							"type": "list",
+							"l": "Удар"
+						},
+						{
+							"name": "techHe",
+							"type": "list",
+							"l": "Натиск; Взрыв; Порыв; Перелом; Разлом; Коготь; Зуб; Штопор; Пролом; Порез; Танец; Нырок; Толчок; Клык; Крюк;  Молот; Блок; Ураган;Ад;  Аркан; Подъем;  Напор; Вал ударов; Хлопок; Ожог; Топот; Град;  Сдвиг; Поворот; Прием; Залп; Поток; Кнут; Хлыст; Вихрь; Смерч; Ветер"
+						},
+						{
+							"name": "techShe",
+							"type": "list",
+							"l": "Атака; Лавина; Преграда; Связка; Техника; Спираль; Стойка; Дробилка; Помеха; Ловушка; Вспышка; Буря; Подсечка; Подножка; Поступь"
+						},
+						{
+							"name": "techIt",
+							"type": "list",
+							"l": "Сальто; Жало; Нападение; Дуновение; Разрушение; Разрубание; Комбо; Столкновение; Уклонение; Пике; Торможение; Падение; Инферно; Удушение; Оглушение; Лассо; Сжатие; Добивание; Уничтожение; Пробивание; Подчинение; Касание; Метание; Явление"
+						},
+						{
+							"name": "techThey",
+							"type": "list",
+							"l": "Тиски; Клешни; Объятия"
+						},
+						{
+							"name": "byWhat",
+							"type": "list",
+							"random": 3,
+							"l": "головой; локтем; коленом; с разворота пальцами; ладонью; кулаком; ногой; зубами"
+						},
+						{
+							"name": "definHe",
+							"type": "list",
+							"l": "Крадущегося;Пьяного;Падающего;Летящего;Улыбающегося;Спрятавшегося;Шипящего;Нефритового;Скачущего;Прыгающего;Следящего;Безпощадного;Мирного;Спокойного;Внезапного Яростного;Гневного;Бешенного;Неистоого;Буйного;Быстрого;Стремительного;Вращающегося;Парящего;Безмятежного;Тихого;Укрывшегося;Поющего;Улыбающегося;Лязгающего;Рычащего;Ворчащего;Скользкого;Гордого;Затаивщегося;Ужасающего;Восходящего;Размахивающегося;Неуязвимого;Невидимого;Упорного;Несгибамого;Стойкого;Шепчущего;Текучего"
+						},
+						{
+							"name": "definShe",
+							"type": "list",
+							"l": "Крадущейся;Пьяной;Падающей;Летящей;Улыбающейся;Спрятавшейся;Шипящей;Нефритовой;Скачущей;Прыгающей;Следящей;Безпощадной;Мирной;Спокойной;Внезапной Яростной;Гневной;Бешенной;Неистоой;Буйной;Быстрой;Стремительной;Вращающейся;Парящей;Безмятежной;Тихой;Укрывшейся;Поющей;Улыбающейся;Лязгающей;Рычащей;Ворчащей;Скользкой;Гордой;Затаивщейся;Ужасающей;Восходящей;Размахивающейся;Неуязвимой;Невидимой;Упорной;Несгибамой;Стойкой;Шепчущей;Текучей"
+						},
+						{
+							"name": "creatureHe",
+							"type": "list",
+							"l": "Ангела;Банши;Варвара;Берсерка;Медведя;Журавля;Сверчка;Крокодила;Демона;Дракона;Орла;Слона;Мамонта;Ястреба;Коршуна;Духа;Гоблина;Голема;Кузнечика;Жеребца;Лемура;Льва;Богомола;Метеора;Паладина;Ягуара;Барана;Тарана;Ящера;Хищника;Зверя;Носорога;Петуха;Неба;Шторма;Тайфуна;Солнца;Вора;Грома;Тигра;Единорога;Ветра;Волшебника;Волка;Буйвола;Осьминога;Тарантула;Огня;Воздуха;Света;Бура"
+						},
+						{
+							"name": "creatureShe",
+							"type": "list",
+							"l": "Лягушки;Гориллы;Земли;Молнии;Обезьяны;Луны;Пантеры;Пираньи;Крысы;Реки;Змеи;Акулы;Звезды;Грозы;Бури;Осы"
+						}
+					]
+				},
+				{
 					"name": "trinkets",
 					"title": "Безделушки",
 					"tooltip": "DND 5, Players Hand Book, 100 безделушек",
@@ -654,15 +737,36 @@ function setSelectedItem() {
 			var oItem = $("label[for=ch_"+aResult[1]+"]").eq(0);
 			if(oItem){
 				onSelectItemPress(oItem);
-				go();
+				getRandomItem();
 			}
 		}
 	}
 }
+function formatLine(sLine) {
+	sLine = sLine.toLowerCase();
+	sLine = sLine.charAt(0).toUpperCase() + sLine.substr(1);
+	return sLine;
+}
+function getRandomItem(){
+  var src = $("#selector .combo_box_title").attr("data-val");
+  var sItemsLine = src.split(",");
+  var quantity = $("input#quantity").val();  
+  var number = /[0-9]+/.test(quantity)? quantity : 5;
+  var table = "";
 
-function go(){
-	var src = $("#selector .combo_box_title").attr("data-val");
-  var items_line = src.split(",");
+  for(var n in sItemsLine) {
+    var race = sItemsLine[n].trim().split(" ");
+    for(var r=0; r<number; r++) {
+      name = generateRandomItem(items, race[0], race[1]);
+      table+="<tr><td>"+formatLine(name)+"</td></tr>";
+      //$("#result").append(name+"<br>");
+    }
+  }
+  table="<table align='center'>"+table+"</table>";
+  $("#result").html(table);
+	/*/
+  var src = $("#selector .combo_box_title").attr("data-val");
+  var sItemsLine = src.split(",");
   var quantity = $("input#quantity").val();
   
   var number = /[0-9]+/.test(quantity)? quantity : 5;
@@ -672,8 +776,8 @@ function go(){
   var dictionary = [];
   var string = "";
 
-  for(var n in items_line) {
-    var subtype = items_line[n].trim().split(" ");
+  for(var n in sItemsLine) {
+    var subtype = sItemsLine[n].trim().split(" ");
     item = make_item(items, subtype[0], subtype[1]);
 	arr.push(item);
   }
@@ -686,7 +790,7 @@ function go(){
 	 var num = 1;
 	 if(p) {
 		num = p[1];
-		item = item.replace(/\s*{{\s*\d+\s*}}\s*/, "");		
+		item = item.replace(/\s*{{\s*\d+\s*}}\s* /, "");	// \s*_/	
 		for(; num>0; num--) {			
 			if(item.length > 0)
 				tmpArr.push(item);
@@ -712,8 +816,131 @@ function go(){
   
   table="<table align='center'>"+table+"</table>";
   $("#result").html(table);
+  /**/
 }
 
+function generate_word(source, oParameters) {
+	var sResultString;
+  if (source.l && (source.type == 'list' || oParameters && oParameters.type == 'list' || randd(0,1)>0)) {
+	  
+	var tmpArr=[];
+    var arr = shuffle(source.l.split(";").map(function(item){
+	 var p = item.match(/{{s*(\d+)s*}}/);
+	 var num = 1;
+	 if(p) {
+		num = p[1];
+		item = item.replace(/\s*{{\s*\d+\s*}}\s*/, "");	// \s*_/	
+		for(; num>0; num--) {			
+			if(item.length > 0)
+				tmpArr.push(item);
+		}
+	 }
+	 return item;
+	}).concat(tmpArr));
+  
+    sResultString = arr[0].trim();
+  } else {
+	var oSource = source;
+		var sLink = source.link;
+		if (sLink){
+			var aPath = oSource.path.split("/");
+			aPath.pop();
+			var vStart = aPath.shift();
+			oSource = window[vStart];
+			for (var v=0; aPath[v]; v++) {
+				oSource = oSource[aPath[v]];
+			}
+			for (var u in oSource) {
+				if(oSource[u].name == sLink){
+					oSource = oSource[u];
+					break;
+				}
+			}
+			
+		}
+	
+	if (source.mod && source.mod.toLowerCase() == "start") {
+		var aS = shuffle(oSource.l.split(/,\s*/))[0];
+		var sResultString = "";
+		aS = aS.replace(/\s+/ig,"");
+		for (var s=0; s<aS.length; s++){
+			sResultString = sResultString+=aS[s]
+			if(aS[1+ +s] && /[уеыаоэяию]/.test(aS[1+ +s]) && s>1)
+				break;
+		}
+	} else {
+			//debugger;
+		var maxLength = randd(0,4);
+		sResultString = getFr(shuffle(oSource.end));
+
+		for (var q=0; q<maxLength; q++) {
+			var tmp = "";
+			for (var w=0; w<3 && tmp.length < 1; w++){
+				sh = shuffle(oSource.mid);
+				tmp = getSim(sResultString, sh, 2);
+			}
+			sResultString = tmp + sResultString;
+		}
+		sh = shuffle(oSource.st);
+		//sResultString = fixName(getSim(sResultString, sh, 2) + sResultString);
+	}
+  }
+  return sResultString;
+}
+
+function generateRandomItem(src, type, subtype) {
+	var sResultString = '';
+
+	for (var t1 in src.l) {
+		if(src.l[t1].name == type){
+			for (var t2 in src.l[t1].list) {
+				if (src.l[t1].list[t2].name == subtype) {
+					var cur = src.l[t1].list[t2];
+					var schemes = shuffle(cur.schemes);
+					var schema = schemes[0];
+					var aItems = schema.split(" ");
+					var source = cur.src;
+					for (var i in aItems) {
+						for( var j in source) {
+							if(source[j].name==aItems[i]) {
+								if (source[j].random? randd(0,source[j].random)==0 : 1) {
+									word = generate_word(source[j]);
+									var re_match;
+									for ( var m=5;
+											m>0 &&
+											word.length<3 ||
+											word.length<4 &&
+											/[БВГДЖЗКЛМНПРСТФХЦЧЩШЪЬ]{2,}/i.test(word) ||
+											word.length>3 &&
+											/[БВГДЖЗКЛМНПРСТФХЦЧЩШЪЬ]{3,}/i.test(word) ||
+											(re_match = word.match(/[УЕЫАОЭЯИЮЯ]/gi) &&
+											re_match &&
+											word.match(/[УЕЫАОЭЯИЮЯ]/gi).length<2);
+											m--
+										){
+										word = generate_word(source[j]);
+									}
+									var prefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
+									var postfix = source[j].hasOwnProperty('postfix')? source[j].postfix : " ";
+									//sResultString+= prefix+fixName(word, source[j].format)+postfix;
+									sResultString+= prefix+ word +postfix;
+									break;
+								}
+							}
+						}
+					}
+
+					break;
+				}
+			}
+			break;
+		}
+	}
+
+	//name = (name.length<5 && randd(0,1)>0)? name = 
+
+  return sResultString;
+}
 // init page controlls
 make_page();
 
@@ -902,7 +1129,7 @@ $("body").on('click', ".combo_box label", function(){
 
 // random 
 $("body").on('click', "#go", function(){
-  go();
+  getRandomItem();
 
 });
 
