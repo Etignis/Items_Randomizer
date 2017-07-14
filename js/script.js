@@ -1,4 +1,6 @@
 
+$(window).load(function(){
+	
 	var ARR_DOWN = '<i class="fa fa-arrow-down"></i>';
 	var ARR_UP = '<i class="fa fa-arrow-up"></i>';
 
@@ -592,6 +594,7 @@ var items = {
 };
 
 
+
 function make_page() {
 
 	var comboBox = makeComboBox(items);
@@ -613,6 +616,8 @@ function make_page() {
 	  
 	  $('#wrapper').append(pre_bg).after("<div id='bgImg' class='background bg_custom'></div>");
   }
+  
+  setSelectedItem();
 }
 
 function make_item(src, type, subtype) {
@@ -640,7 +645,74 @@ function make_item(src, type, subtype) {
 	}
 }
 
-$(window).load(function(){
+function setSelectedItem() {
+	var sHash = window.location.hash;
+	if(sHash) {
+		var aResult = sHash.match(/#item=([A-Za-z\d_-]+)/); // #item=name
+		
+		if(aResult[1]){
+			var oItem = $("label[for=ch_"+aResult[1]+"]").eq(0);
+			if(oItem){
+				onSelectItemPress(oItem);
+				go();
+			}
+		}
+	}
+}
+
+function go(){
+	var src = $("#selector .combo_box_title").attr("data-val");
+  var items_line = src.split(",");
+  var quantity = $("input#quantity").val();
+  
+  var number = /[0-9]+/.test(quantity)? quantity : 5;
+  var table = "";
+  var item;
+  var arr = [];
+  var dictionary = [];
+  var string = "";
+
+  for(var n in items_line) {
+    var subtype = items_line[n].trim().split(" ");
+    item = make_item(items, subtype[0], subtype[1]);
+	arr.push(item);
+  }
+  string = arr.join(";");
+  
+  var tmpArr=[];
+  
+  dictionary = string.split(";").map(function(item){
+	 var p = item.match(/{{s*(\d+)s*}}/);
+	 var num = 1;
+	 if(p) {
+		num = p[1];
+		item = item.replace(/\s*{{\s*\d+\s*}}\s*/, "");		
+		for(; num>0; num--) {			
+			if(item.length > 0)
+				tmpArr.push(item);
+		}
+	 }
+	 return item;
+  });
+  
+  if(dictionary[dictionary.length-1].length==0)
+	  dictionary.pop();
+  
+  dictionary = dictionary.concat(tmpArr);
+  
+  
+  while(dictionary.length < number) {
+	 dictionary = dictionary.concat(dictionary);
+  }
+  dictionary = shuffle(dictionary);
+  
+  for (var i = 0; i < number && i < dictionary.length; i++) {
+	table+="<tr><td>"+dictionary[i].trim()+"</td></tr>";
+  }
+  
+  table="<table align='center'>"+table+"</table>";
+  $("#result").html(table);
+}
 
 // init page controlls
 make_page();
@@ -797,7 +869,6 @@ function onSelectItemPress(src) {
 	return false;
 }
 
-
 $("body").on('click', ".combo_box input", function(event){
 	//var checked = $(this).prop("checked");
 	//$(this).prop("checked", !checked);
@@ -831,57 +902,7 @@ $("body").on('click', ".combo_box label", function(){
 
 // random 
 $("body").on('click', "#go", function(){
-  var src = $("#selector .combo_box_title").attr("data-val");
-  var items_line = src.split(",");
-  var quantity = $("input#quantity").val();
-  
-  var number = /[0-9]+/.test(quantity)? quantity : 5;
-  var table = "";
-  var item;
-  var arr = [];
-  var dictionary = [];
-  var string = "";
-
-  for(var n in items_line) {
-    var subtype = items_line[n].trim().split(" ");
-    item = make_item(items, subtype[0], subtype[1]);
-	arr.push(item);
-  }
-  string = arr.join(";");
-  
-  var tmpArr=[];
-  
-  dictionary = string.split(";").map(function(item){
-	 var p = item.match(/{{s*(\d+)s*}}/);
-	 var num = 1;
-	 if(p) {
-		num = p[1];
-		item = item.replace(/\s*{{\s*\d+\s*}}\s*/, "");		
-		for(; num>0; num--) {			
-			if(item.length > 0)
-				tmpArr.push(item);
-		}
-	 }
-	 return item;
-  });
-  
-  if(dictionary[dictionary.length-1].length==0)
-	  dictionary.pop();
-  
-  dictionary = dictionary.concat(tmpArr);
-  
-  
-  while(dictionary.length < number) {
-	 dictionary = dictionary.concat(dictionary);
-  }
-  dictionary = shuffle(dictionary);
-  
-  for (var i = 0; i < number && i < dictionary.length; i++) {
-	table+="<tr><td>"+dictionary[i].trim()+"</td></tr>";
-  }
-  
-  table="<table align='center'>"+table+"</table>";
-  $("#result").html(table);
+  go();
 
 });
 
