@@ -933,7 +933,8 @@ function generateRandomItem(src, type, subtype, nCount) {
 					
 					if(schemes.length>1) {
 						for (var q=0; q<nCount; q++) {
-							var schema = schemes[q];
+							var nQ = (q>=aWords.length)? q-aWords.length: q;
+							var schema = schemes[nQ];
 							var aItems = schema.split(" ");
 							var source = cur.src;
 							sResultString= '';
@@ -1001,7 +1002,8 @@ function generateRandomItem(src, type, subtype, nCount) {
 										
 										for (var q=0; q<nCount; q++) {
 											word = generate_word(source[j]);
-											var sWord = aWords[q].trim();
+											var nQ = (q>=aWords.length)? q-aWords.length: q;
+											var sWord = aWords[nQ].trim();
 											var sPrefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
 											var sPostfix = source[j].hasOwnProperty('postfix')? source[j].postfix : " ";
 											aResult.push(sPrefix+ sWord +sPostfix);
