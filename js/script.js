@@ -167,7 +167,7 @@ var items = {
 						{
 							"name": "definHe",
 							"type": "list",
-							"l": "Крадущегося;Пьяного;Падающего;Летящего;Улыбающегося;Спрятавшегося;Шипящего;Нефритового;Скачущего;Прыгающего;Следящего;Беспощадного;Мирного;Спокойного;Внезапного; Жемчужного; Бамбукового; Танцующего; Яростного;Гневного;Бешенного;Неистового;Буйного;Быстрого;Стремительного;Вращающегося;Парящего;Безмятежного;Тихого;Укрывшегося;Поющего;Улыбающегося;Лязгающего;Рычащего;Ворчащего;Скользкого;Гордого;Затаивщегося;Ужасающего;Восходящего;Размахивающегося;Неуязвимого;Невидимого;Упорного;Несгибамого;Стойкого;Шепчущего;Текучего;Алмазного;Бронзового;Хитрого; Ядовитого; Стеклянного; Железного; Песчаного; Горного; Кораллового; Перламутрового; Ускользающего; Щекочущего; Пятнистого; Вежливого; Смиренного; Последнего; Замышляющего недоброе, Старого, Могучего, Ужасной, Смеющегося"
+							"l": "Крадущегося;Пьяного;Падающего;Летящего;Улыбающегося;Спрятавшегося;Шипящего;Нефритового;Скачущего;Прыгающего;Следящего;Беспощадного;Мирного;Спокойного;Внезапного; Жемчужного; Бамбукового; Танцующего; Яростного;Гневного;Бешенного;Неистового;Буйного;Быстрого;Стремительного;Вращающегося;Парящего;Безмятежного;Тихого;Укрывшегося;Поющего;Улыбающегося;Лязгающего;Рычащего;Ворчащего;Скользкого;Гордого;Затаивщегося;Ужасающего;Восходящего;Размахивающегося;Неуязвимого;Невидимого;Упорного;Несгибамого;Стойкого;Шепчущего;Текучего;Алмазного;Бронзового;Хитрого; Ядовитого; Стеклянного; Железного; Песчаного; Горного; Кораллового; Перламутрового; Ускользающего; Щекочущего; Пятнистого; Вежливого; Смиренного; Последнего; Замышляющего недоброе; Старого; Могучего,; Ужасной; Смеющегося"
 						},
 						{
 							"name": "definShe",
@@ -177,7 +177,7 @@ var items = {
 						{
 							"name": "creatureHe",
 							"type": "list",
-							"l": "Ангела;Варвара;Берсерка;Медведя;Журавля;Сверчка;Крокодила;Демона;Дракона;Орла;Слона;Мамонта;Ястреба;Коршуна;Духа;Гоблина;Голема;Кузнечика;Жеребца;Лемура;Льва;Богомола;Метеора;Паладина;Ягуара;Барана;Тарана;Ящера;Хищника;Зверя;Носорога;Петуха;Неба;Шторма;Тайфуна;Солнца;Вора;Грома;Тигра;Единорога;Ветра; Волка;Буйвола;Осьминога;Тарантула;Огня;Воздуха;Света;Бура;Меча;Лотоса; Грифона; Буревестника; Молота; Мастера; Клинка; Лосося; Карпа; Тунца; Посоха; Жезла; Лося; Отшельника; Кинжала, Кролика, Охотника, Листа"
+							"l": "Ангела;Варвара;Берсерка;Медведя;Журавля;Сверчка;Крокодила;Демона;Дракона;Орла;Слона;Мамонта;Ястреба;Коршуна;Духа;Гоблина;Голема;Кузнечика;Жеребца;Лемура;Льва;Богомола;Метеора;Паладина;Ягуара;Барана;Тарана;Ящера;Хищника;Зверя;Носорога;Петуха;Неба;Шторма;Тайфуна;Солнца;Вора;Грома;Тигра;Единорога;Ветра; Волка;Буйвола;Осьминога;Тарантула;Огня;Воздуха;Света;Бура;Меча;Лотоса; Грифона; Буревестника; Молота; Мастера; Клинка; Лосося; Карпа; Тунца; Посоха; Жезла; Лося; Отшельника; Кинжала; Кролика; Охотника; Листа; Пацифиста"
 						},
 						{
 							"name": "creatureShe",
@@ -804,8 +804,10 @@ function setSelectedItem() {
 	}
 }
 function formatLine(sLine) {
-	sLine = sLine.toLowerCase();
-	sLine = sLine.charAt(0).toUpperCase() + sLine.substr(1);
+	if(sLine) {
+		sLine = sLine.toLowerCase();
+		sLine = sLine.charAt(0).toUpperCase() + sLine.substr(1);
+		}
 	return sLine;
 }
 function getRandomItem(){
@@ -920,6 +922,7 @@ function generate_word(source, oParameters) {
 
 function generateRandomItem(src, type, subtype, nCount) {
 	var aResult = [];
+	var sResultString = '';
 
 	for (var t1 in src.l) {
 		if(src.l[t1].name == type){
@@ -927,64 +930,91 @@ function generateRandomItem(src, type, subtype, nCount) {
 				if (src.l[t1].list[t2].name == subtype) {
 					var cur = src.l[t1].list[t2];
 					var schemes = shuffle(cur.schemes);
-					var schema = schemes[0];
-					var aItems = schema.split(" ");
-					var source = cur.src;
-					for (var i in aItems) {
-						for( var j in source) {
-							if(source[j].name==aItems[i]) {
-								if (source[j].random? randd(0,source[j].random)==0 : 1) {
-									//prepare array									
-									var aWords=[];
-									var aWords = shuffle(source[j].l.split(";").map(function(item){
-									 var p = item.match(/{{s*(\d+)s*}}/);
-									 var num = 1;
-									 if(p) {
-										num = p[1];
-										item = item.replace(/\s*{{\s*\d+\s*}}\s*/, "");	// \s*_/	
-										for(; num>0; num--) {			
-											if(item.length > 0)
-												aWords.push(item);
-										}
-									 }
-									 return item;
-									}).concat(aWords));
-
-									
-									for (var q=0; q<nCount; q++) {
-										var sWord = aWords[q].trim();
-										var sPrefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
-										var sPostfix = source[j].hasOwnProperty('postfix')? source[j].postfix : " ";
-										aResult.push(sPrefix+ sWord +sPostfix);
-										/*/
-										word = generate_word(source[j]);
-										var re_match;
-										for ( var m=5;
-												m>0 &&
-												word.length<3 ||
-												word.length<4 &&
-												/[БВГДЖЗКЛМНПРСТФХЦЧЩШЪЬ]{2,}/i.test(word) ||
-												word.length>3 &&
-												/[БВГДЖЗКЛМНПРСТФХЦЧЩШЪЬ]{3,}/i.test(word) ||
-												(re_match = word.match(/[УЕЫАОЭЯИЮЯ]/gi) &&
-												re_match &&
-												word.match(/[УЕЫАОЭЯИЮЯ]/gi).length<2);
-												m--
-											){
+					
+					if(schemes.length>1) {
+						for (var q=0; q<nCount; q++) {
+							var schema = schemes[q];
+							var aItems = schema.split(" ");
+							var source = cur.src;
+							sResultString= '';
+							for (var i in aItems) {
+								for( var j in source) {
+									if(source[j].name==aItems[i]) {
+										if (source[j].random? randd(0,source[j].random)==0 : 1) {	
+											/**/
 											word = generate_word(source[j]);
+											var re_match;
+											for ( var m=5;
+													m>0 &&
+													word.length<3 ||
+													word.length<4 &&
+													/[БВГДЖЗКЛМНПРСТФХЦЧЩШЪЬ]{2,}/i.test(word) ||
+													word.length>3 &&
+													/[БВГДЖЗКЛМНПРСТФХЦЧЩШЪЬ]{3,}/i.test(word) ||
+													(re_match = word.match(/[УЕЫАОЭЯИЮЯ]/gi) &&
+													re_match &&
+													word.match(/[УЕЫАОЭЯИЮЯ]/gi).length<2);
+													m--
+												){
+												word = generate_word(source[j]);
+											}
+											var prefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
+											var postfix = source[j].hasOwnProperty('postfix')? source[j].postfix : " ";
+											//sResultString+= prefix+fixName(word, source[j].format)+postfix;
+											//aResult.push(prefix+ word +postfix);
+											sResultString+= prefix+ word +postfix
+											
+											/**/
+											
+											break;
 										}
-										var prefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
-										var postfix = source[j].hasOwnProperty('postfix')? source[j].postfix : " ";
-										//sResultString+= prefix+fixName(word, source[j].format)+postfix;
-										aResult.push(prefix+ word +postfix);
+									}
+								}
+							}
+							aResult.push(sResultString);
+						}
+						
+					} else {
+						var schema = schemes[0];
+						var aItems = schema.split(" ");
+						var source = cur.src;
+						for (var i in aItems) {
+							for( var j in source) {
+								if(source[j].name==aItems[i]) {
+									if (source[j].random? randd(0,source[j].random)==0 : 1) {
+										//prepare array									
+										var aWords=[];
+										var aWords = shuffle(source[j].l.split(";").map(function(item){
+										 var p = item.match(/{{s*(\d+)s*}}/);
+										 var num = 1;
+										 if(p) {
+											num = p[1];
+											item = item.replace(/\s*{{\s*\d+\s*}}\s*/, "");	// \s*_/	
+											for(; num>0; num--) {			
+												if(item.length > 0)
+													aWords.push(item);
+											}
+										 }
+										 return item;
+										}).concat(aWords));
+
 										
-										/**/
-									} 
-									break;
+										for (var q=0; q<nCount; q++) {
+											word = generate_word(source[j]);
+											var sWord = aWords[q].trim();
+											var sPrefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
+											var sPostfix = source[j].hasOwnProperty('postfix')? source[j].postfix : " ";
+											aResult.push(sPrefix+ sWord +sPostfix);
+											//sResultString+= sPrefix+ sWord +sPostfix;	
+											//aResult.push(sResultString);										
+										} 
+										break;
+									}
 								}
 							}
 						}
 					}
+					
 
 					break;
 				}
@@ -1152,7 +1182,13 @@ function onSelectItemPress(src) {
 	// url hash
 	var sHashVal = (leng==1)? $("#selector").find("input:checked + label[for] ").attr("for").replace("ch_", "") : "";
 	var sHash = "item="+sHashVal;
-	location.hash = (leng==1)? sHash : "";
+	//location.hash = (leng==1)? sHash : "";
+	if (leng==1) {
+		location.hash = sHash;
+	} else {
+		history.pushState("", document.title, window.location.pathname);
+	}
+	//history.pushState("", document.title, window.location.pathname);
 	// url hash /
 	return false;
 }
