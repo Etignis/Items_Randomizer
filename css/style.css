@@ -691,6 +691,11 @@ th {
     background-repeat: no-repeat;
     background-image: url(../img/bg_encounters.png);
   }
+  .bg_personality {
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-image: url(../img/bg_personality.png);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

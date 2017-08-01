@@ -737,7 +737,7 @@ var items = {
     {
     "name": "personality",
     "title": "Персонаж",
-    "bg": "",
+    "bg": "bg_personality",
     "list": [
         {
           "name": "char_trait",
@@ -827,7 +827,7 @@ function make_page() {
   $('#wrapper').html("<div id='panel'>"+generator+"</div>"+out);
   
   if(getViewPortSize("width") > 450) {
-    var pre_bg = "<div id='pre_bg' style='display: none'><img src='img/bg_custom.png'><img src='img/bg_effects.png'><img src='img/bg_loot.png'><img src='img/bg_magic.png'><img src='img/bg_maps.png'><img src='img/bg_tressure.png'><img src='img/bg_encounters.png'></div>";
+    var pre_bg = "<div id='pre_bg' style='display: none'><img src='img/bg_custom.png'><img src='img/bg_effects.png'><img src='img/bg_loot.png'><img src='img/bg_magic.png'><img src='img/bg_maps.png'><img src='img/bg_tressure.png'><img src='img/bg_encounters.png'><img src='img/bg_personality.png'></div>";
     
     $('#wrapper').append(pre_bg).after("<div id='bgImg' class='background bg_custom'></div>");
   }
