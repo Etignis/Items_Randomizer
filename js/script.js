@@ -740,9 +740,9 @@ var items = {
     "bg": "",
     "list": [
         {
-          "name": "trait",
+          "name": "char_trait",
           "title": "Черта характера",
-          "tooltip": "",
+          "tooltip": "D&D 5e, Player's Handbook",
           "schemes": [
             "list"
           ],
@@ -756,9 +756,9 @@ var items = {
         },
 
         {
-          "name": "trait",
+          "name": "char_ideal",
           "title": "Идеал",
-          "tooltip": "",
+          "tooltip": "D&D 5e, Player's Handbook",
           "schemes": [
             "list"
           ],
@@ -772,9 +772,9 @@ var items = {
         },
 
         {
-          "name": "trait",
+          "name": "char_bond",
           "title": "Привязанность",
-          "tooltip": "",
+          "tooltip": "D&D 5e, Player's Handbook",
           "schemes": [
             "list"
           ],
@@ -788,9 +788,9 @@ var items = {
         },
 
         {
-          "name": "trait",
+          "name": "char_flaw",
           "title": "Изъян",
-          "tooltip": "",
+          "tooltip": "D&D 5e, Player's Handbook",
           "schemes": [
             "list"
           ],
