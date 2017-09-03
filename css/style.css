@@ -696,6 +696,11 @@ th {
     background-repeat: no-repeat;
     background-image: url(../img/bg_personality.png);
   }
+  .bg_rumors {
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-image: url(../img/bg_rumors.png);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
