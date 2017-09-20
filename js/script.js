@@ -113,16 +113,33 @@ function make_item(src, type, subtype) {
       for (var t2 in src.l[t1].list) {
         if (src.l[t1].list[t2].name == subtype) {
           var cur = src.l[t1].list[t2];
-          var schemes = shuffle(cur.schemes);
+          var schemes = shuffle(cur.schemes);          
           var schema = schemes[0];
-          var item_arr = schema.split(" ");
-          var source = cur.src;
-          var list;
-          for (var i in item_arr) {
-            for( var j in source) {
-              if(source[j].name==item_arr[i]) {
-                list = source[j].l;
-                return list;
+          
+          if(typeof schema == 'string') {            
+            var item_arr = schema.split(" ");
+            var source = cur.src;
+            var list;
+            for (var i in item_arr) {
+              for( var j in source) {
+                if(source[j].name==item_arr[i]) {
+                  list = source[j].l;
+                  return list;
+                }
+              }
+            }
+          } else {
+            if(scheme.type == 'oneofall') {
+              var item_arr = schema.string.split(" ");
+              var source = cur.src;
+              var list;
+              for (var i in item_arr) {
+                for( var j in source) {
+                  if(source[j].name==item_arr[i]) {
+                    list = source[j].l;
+                    return list;
+                  }
+                }
               }
             }
           }
@@ -295,25 +312,9 @@ function generateRandomItem(src, type, subtype, nCount) {
                     if (source[j].random? randd(0,source[j].random)==0 : 1) { 
                       /**/
                       word = generate_word(source[j]);
-                      var re_match;
-                      for ( var m=5;
-                          m>0 &&
-                          word.length<3 ||
-                          word.length<4 &&
-                          /[БВГДЖЗКЛМНПРСТФХЦЧЩШЪЬ]{2,}/i.test(word) ||
-                          word.length>3 &&
-                          /[БВГДЖЗКЛМНПРСТФХЦЧЩШЪЬ]{3,}/i.test(word) ||
-                          (re_match = word.match(/[УЕЫАОЭЯИЮЯ]/gi) &&
-                          re_match &&
-                          word.match(/[УЕЫАОЭЯИЮЯ]/gi).length<2);
-                          m--
-                        ){
-                        word = generate_word(source[j]);
-                      }
+
                       var prefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
                       var postfix = source[j].hasOwnProperty('postfix')? source[j].postfix : " ";
-                      //sResultString+= prefix+fixName(word, source[j].format)+postfix;
-                      //aResult.push(prefix+ word +postfix);
                       sResultString+= prefix+ word +postfix
                       
                       /**/
@@ -328,13 +329,21 @@ function generateRandomItem(src, type, subtype, nCount) {
             
           } else {
             var schema = schemes[0];
-            var aItems = schema.split(" ");
+            var aItems;
+            if(typeof schema == 'string') {              
+              aItems = schema.split(" ");
+            } else {
+              if(schema.type == 'oneofall') {
+                var tmpItems = schema.string.split(" ");
+                aItems = [tmpItems[randd(0,tmpItems.length-1)]];
+              }
+            }
             var source = cur.src;
             for (var i in aItems) {
               for( var j in source) {
                 if(source[j].name==aItems[i]) {
                   if (source[j].random? randd(0,source[j].random)==0 : 1) {
-                    //prepare array                 
+                         
                     var aWords=[];
                     var aWords = shuffle(source[j].l.split(";").map(function(item){
                      var p = item.match(/{{s*(\d+)s*}}/);
@@ -357,9 +366,7 @@ function generateRandomItem(src, type, subtype, nCount) {
                       var sWord = aWords[nQ].trim();
                       var sPrefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
                       var sPostfix = source[j].hasOwnProperty('postfix')? source[j].postfix : " ";
-                      aResult.push(sPrefix+ sWord +sPostfix);
-                      //sResultString+= sPrefix+ sWord +sPostfix; 
-                      //aResult.push(sResultString);                    
+                      aResult.push(sPrefix+ sWord +sPostfix);     
                     } 
                     break;
                   }
@@ -367,6 +374,8 @@ function generateRandomItem(src, type, subtype, nCount) {
               }
             }
           }
+          
+          
           
 
           break;
