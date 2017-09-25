@@ -1,4 +1,3 @@
-
 $(window).load(function(){
   var items = RandomItems;
   var ARR_DOWN = '<i class="fa fa-arrow-down"></i>';
@@ -48,7 +47,7 @@ function getViewPortSize(mod)
 
   if(mod=="width")
     return viewportwidth;
-  
+
     return viewportwidth + "~" + viewportheight;
 }
 
@@ -97,13 +96,13 @@ function make_page() {
     "<a class='bt' id='info'><i class='fa fa-question-circle'></i></a>";
 
   $('#wrapper').html("<div id='panel'>"+generator+"</div>"+out);
-  
+
   if(getViewPortSize("width") > 450) {
     var pre_bg = "<div id='pre_bg' style='display: none'><img src='img/bg_custom.png'><img src='img/bg_effects.png'><img src='img/bg_loot.png'><img src='img/bg_magic.png'><img src='img/bg_maps.png'><img src='img/bg_tressure.png'><img src='img/bg_encounters.png'><img src='img/bg_personality.png'></div>";
-    
+
     $('#wrapper').append(pre_bg).after("<div id='bgImg' class='background bg_custom'></div>");
   }
-  
+
   setSelectedItem();
 }
 
@@ -113,10 +112,10 @@ function make_item(src, type, subtype) {
       for (var t2 in src.l[t1].list) {
         if (src.l[t1].list[t2].name == subtype) {
           var cur = src.l[t1].list[t2];
-          var schemes = shuffle(cur.schemes);          
+          var schemes = shuffle(cur.schemes);
           var schema = schemes[0];
-          
-          if(typeof schema == 'string') {            
+
+          if(typeof schema == 'string') {
             var item_arr = schema.split(" ");
             var source = cur.src;
             var list;
@@ -153,13 +152,13 @@ function setSelectedItem() {
   var sHash = window.location.hash;
   if(sHash) {
     var aResult = sHash.match(/#item=([A-Za-z\d_-]+)/); // #item=name
-    
+
     if(aResult[1]){
       var oItem = $("label[for=ch_"+aResult[1]+"]").eq(0);
       if(oItem){
         onSelectItemPress(oItem);
         getRandomItem();
-      } 
+      }
 	  /*/
 	  oItem = $("input[data-root="+aResult[1]+"]").eq(0);
 	  if(oItem) {
@@ -180,17 +179,17 @@ function formatLine(sLine) {
 function getRandomItem(){
   var src = $("#selector .combo_box_title").attr("data-val");
   var sItemsLine = src.split(",");
-  var quantity = $("input#quantity").val();  
+  var quantity = $("input#quantity").val();
   var number = /[0-9]+/.test(quantity)? quantity : 5;
   var table = "";
 
   var aMiddleList = [];
-  
-  
+
+
     for(var n in sItemsLine) {
     var type = sItemsLine[n].trim().split(" ");
     //getNumerousItems(items, type[0], type[1], number);
-    
+
     /**/
     //for(var r=0; r<number; r++) {
       aMiddleList = aMiddleList.concat(generateRandomItem(items, type[0], type[1], number));
@@ -205,7 +204,7 @@ function getRandomItem(){
   };
   table="<table align='center'>"+table+"</table>";
   $("#result").html(table);
-  
+
 }
 
 function getNumerousItems(oSrc, sType, sSubtype, nCount) {
@@ -222,15 +221,15 @@ function getNumerousItems(oSrc, sType, sSubtype, nCount) {
 function generate_word(source, oParameters) {
   var sResultString;
   if (source.l && (source.type == 'list' || oParameters && oParameters.type == 'list' || randd(0,1)>0)) {
-    
+
     var tmpArr=[];
     var arr = shuffle(source.l.split(";").map(function(item){
      var p = item.match(/{{s*(\d+)s*}}/);
      var num = 1;
      if(p) {
       num = p[1];
-      item = item.replace(/\s*{{\s*\d+\s*}}\s*/, ""); // \s*_/  
-      for(; num>0; num--) {     
+      item = item.replace(/\s*{{\s*\d+\s*}}\s*/, ""); // \s*_/
+      for(; num>0; num--) {
         if(item.length > 0)
           tmpArr.push(item);
       }
@@ -256,9 +255,9 @@ function generate_word(source, oParameters) {
           break;
         }
       }
-      
+
     }
-  
+
   if (source.mod && source.mod.toLowerCase() == "start") {
     var aS = shuffle(oSource.l.split(/,\s*/))[0];
     var sResultString = "";
@@ -298,7 +297,7 @@ function generateRandomItem(src, type, subtype, nCount) {
         if (src.l[t1].list[t2].name == subtype) {
           var cur = src.l[t1].list[t2];
           var schemes = shuffle(cur.schemes);
-          
+
           if(schemes.length>1) {
             for (var q=0; q<nCount; q++) {
               var nQ = q; //(q>=aWords.length)? q-aWords.length: q;
@@ -309,16 +308,16 @@ function generateRandomItem(src, type, subtype, nCount) {
               for (var i in aItems) {
                 for( var j in source) {
                   if(source[j].name==aItems[i]) {
-                    if (source[j].random? randd(0,source[j].random)==0 : 1) { 
+                    if (source[j].random? randd(0,source[j].random)==0 : 1) {
                       /**/
                       word = generate_word(source[j]);
 
                       var prefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
                       var postfix = source[j].hasOwnProperty('postfix')? source[j].postfix : " ";
                       sResultString+= prefix+ word +postfix
-                      
+
                       /**/
-                      
+
                       break;
                     }
                   }
@@ -326,57 +325,72 @@ function generateRandomItem(src, type, subtype, nCount) {
               }
               aResult.push(sResultString);
             }
-            
+
           } else {
             var schema = schemes[0];
             var aItems;
-            if(typeof schema == 'string') {              
+            var source = cur.src;
+            if(typeof schema == 'string') {
               aItems = schema.split(" ");
             } else {
               if(schema.type == 'oneofall') {
                 var tmpItems = schema.string.split(" ");
-                aItems = [tmpItems[randd(0,tmpItems.length-1)]];
+                var aNewString = [];
+                for (var i in tmpItems) {
+                  for(var j in source) {
+                    if(source[j].name==tmpItems[i]) {
+                      aNewString.push(source[j].l);
+                    }
+                  }
+                }
+                var sNewString = aNewString.join(";");
+                var sNewScheme = "_newTMPscheme";
+                source.push({
+                  "name": sNewScheme,
+                  "type": "list",
+                  "l": sNewString
+                });
+                aItems = [sNewScheme]; //[tmpItems[randd(0,tmpItems.length-1)]];
               }
             }
-            var source = cur.src;
             for (var i in aItems) {
               for( var j in source) {
                 if(source[j].name==aItems[i]) {
                   if (source[j].random? randd(0,source[j].random)==0 : 1) {
-                         
+
                     var aWords=[];
                     var aWords = shuffle(source[j].l.split(";").map(function(item){
-                     var p = item.match(/{{s*(\d+)s*}}/);
-                     var num = 1;
-                     if(p) {
-                      num = p[1];
-                      item = item.replace(/\s*{{\s*\d+\s*}}\s*/, ""); // \s*_/  
-                      for(; num>0; num--) {     
-                        if(item.length > 0)
-                          aWords.push(item);
+                      var p = item.match(/{{s*(\d+)s*}}/);
+                      var num = 1;
+                      if(p) {
+                        num = p[1];
+                        item = item.replace(/\s*{{\s*\d+\s*}}\s*/, ""); // \s*_/
+                        for(; num>0; num--) {
+                          if(item.length > 0)
+                            aWords.push(item);
+                        }
                       }
-                     }
-                     return item;
+                      return item;
                     }).concat(aWords));
 
-                    
+
                     for (var q=0; q<nCount; q++) {
                       word = generate_word(source[j]);
                       var nQ = (q>=aWords.length)? q-aWords.length: q;
                       var sWord = aWords[nQ].trim();
                       var sPrefix = source[j].hasOwnProperty('prefix')? source[j].prefix : "";
                       var sPostfix = source[j].hasOwnProperty('postfix')? source[j].postfix : " ";
-                      aResult.push(sPrefix+ sWord +sPostfix);     
-                    } 
+                      aResult.push(sPrefix+ sWord +sPostfix);
+                    }
                     break;
                   }
                 }
               }
             }
           }
-          
-          
-          
+
+
+
 
           break;
         }
@@ -385,7 +399,7 @@ function generateRandomItem(src, type, subtype, nCount) {
     }
   }
 
-  //name = (name.length<5 && randd(0,1)>0)? name = 
+  //name = (name.length<5 && randd(0,1)>0)? name =
 
   return aResult;
 }
@@ -409,7 +423,7 @@ $("body").on('click', ".combo_box_title, .combo_box_arrow", function(){
 // get item
 function onSelectItemPress(src) {
   var d_root='', d_parent='', trig=true;
-  
+
   var attrFor = src.attr("for"); // $("input#"+attrFor)
   d_root = $("input#"+attrFor).attr("data-root");
   d_parent = $("input#"+attrFor).attr("data-parent");
@@ -521,9 +535,9 @@ function onSelectItemPress(src) {
       $(".combo_box_title").html(src.closest(".combo_box").attr('data-text'));
 
   /**/
-  
-  
-  // bg 
+
+
+  // bg
 
   var bg = $("#selector").find("input:checked + label[data-bg] ").attr("data-bg");
   var leng = $("#selector").find("input:checked + label[data-bg] ").length;
@@ -537,10 +551,10 @@ function onSelectItemPress(src) {
   } else {
     $("#bgImg").attr("class", "bg_custom");
   }
-    
+
   // bg /
-  
-  
+
+
   // url hash
   var sHashVal = (leng==1)? $("#selector").find("input:checked + label[for] ").attr("for").replace("ch_", "") : "";
   var sHash = "item="+sHashVal;
@@ -560,12 +574,12 @@ function onSelectItemPress(src) {
   }
   //history.pushState("", document.title, window.location.pathname);
   // url hash /
-  
-  
-  // title 
+
+
+  // title
   document.title = sTitle + sTitleItem;
-  
-  
+
+
   return false;
 }
 
@@ -590,17 +604,17 @@ $("body").on('click', ".minimax", function(){
     oParent.find("label").eq(0).show();
   } else {
     $(this).removeClass("max").addClass("min");
-    oParent.find("label").show(); 
+    oParent.find("label").show();
   }
 });
 
 $("body").on('click', ".combo_box label", function(){
-  
+
   onSelectItemPress($(this));
   return false;
 });
 
-// random 
+// random
 $("body").on('click', "#go", function(){
   getRandomItem();
 
@@ -665,9 +679,9 @@ $("body").on('click', "#bGetList", function(){
     var comboBox = makeComboBox(items);
 
     $("#items").empty().append(comboBox);
-    //make_dict2(items) ;  
+    //make_dict2(items) ;
   }
- 
+
   $("#dbg").click();
 
 });
@@ -693,9 +707,9 @@ $("body").on('click', "#info", function(){
   // ENTER
   $("body").on('keyup', function(e){
     var code = e.keyCode || e.which;
-			if(code == 13 && $("#go:disabled").length==0) {        
+			if(code == 13 && $("#go:disabled").length==0) {
         $("#go").click();
-      }  
+      }
   });
 
 });
