@@ -338,7 +338,9 @@ function generateRandomItem(src, type, subtype, nCount) {
                 var aNewString = [];
                 for (var i in tmpItems) {
                   for(var j in source) {
+
                     if(source[j].name==tmpItems[i]) {
+
                       aNewString.push(source[j].l);
                     }
                   }
@@ -350,7 +352,9 @@ function generateRandomItem(src, type, subtype, nCount) {
                   "type": "list",
                   "l": sNewString
                 });
+
                 aItems = [sNewScheme]; //[tmpItems[randd(0,tmpItems.length-1)]];
+
               }
             }
             for (var i in aItems) {
