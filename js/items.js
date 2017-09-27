@@ -110,6 +110,7 @@ var RandomItems = {
           "tooltip": "DND 5, Players Hand Book, 100 безделушек",
           "description": "При создании персонажа вы можете совершить бросок по этой таблице, чтобы получить безделушку — небольшой предмет, немного окутанный тайной. Мастер тоже может использовать эту таблицу. Она поможет заполнить комнаты подземелий и карманы существ.",
           "fArticle": true,
+          "tags": "DnD, DnD5",
           "schemes": [
             "list"
           ],
@@ -127,8 +128,8 @@ var RandomItems = {
           "title": "Что в карманцах?",
           "tooltip": "DM Gems, Что найдет вор",
           "description": "Партийный вор опять решил проверить карманы прохожих? Что же он там найдет? Вот d100 вариантов мелочей, которые могут оказатья при себе у разных обывателей.",
-
           "fArticle": true,
+          "tags": "DnD, d100",
           "schemes": [
             "list"
           ],
@@ -144,8 +145,9 @@ var RandomItems = {
         {
           "name": "casual_furniture",
           "title": "Обычная мебель и предметы",
-          "tooltip": "Dungeon Master Guide",
+          "tooltip": "DnD5, Dungeon Master Guide",
           "description": "Список из d100 обычных предметов, которые могут находиться в любом доме.",
+          "tags": "DnD, DnD5, d100",
           "fArticle": true,
           "schemes": [
             "list"
@@ -162,9 +164,10 @@ var RandomItems = {
         {
           "name": "personal_furniture",
           "title": "Утварь и личные предметы",
-          "tooltip": "Dungeon Master Guide",
-          "description": "Вполне обычные вещи ,что найдутся в каждом доме.",
+          "tooltip": "DnD5, Dungeon Master Guide",
+          "description": "Вполне обычные вещи, что найдутся в каждом доме.",
           "fArticle": true,
+          "tags": "DnD, DnD5, d100",
           "schemes": [
             "list"
           ],
@@ -180,9 +183,10 @@ var RandomItems = {
         {
           "name": "religious_furniture",
           "title": "Религиозные предметы и мебель",
-          "tooltip": "Dungeon Master Guide",
+          "tooltip": "DnD4, Dungeon Master Guide",
           "description": "Список из d100 вещей, для святилища или подобного религиозного помещения.",
           "fArticle": true,
+          "tags": "DnD, DnD5, d100",
           "schemes": [
             "list"
           ],
@@ -198,9 +202,10 @@ var RandomItems = {
         {
           "name": "magus_furniture",
           "title": "Принадлежности магов",
-          "tooltip": "Dungeon Master Guide",
+          "tooltip": "DnD5, Dungeon Master Guide",
           "description": "Что можно найти в рабочем кабинете мага? Например, эти d100 предметов.",
           "fArticle": true,
+          "tags": "DnD, DnD5, d100",
           "schemes": [
             "list"
           ],
@@ -232,9 +237,10 @@ var RandomItems = {
         {
           "name": "someone_container",
           "title": "Содержимое контейнера",
-          "tooltip": "Dungeon Master Guide",
+          "tooltip": "DnD5, Dungeon Master Guide",
           "description": "Приключенцы нашли очередную таинственную шкатулку или загадочный сосуд? Вот d100 довольно обычных вещей, что там можно найти.",
           "fArticle": true,
+          "tags": "DnD, DnD5, d100",
           "schemes": [
             "list"
           ],
@@ -250,9 +256,10 @@ var RandomItems = {
         {
           "name": "books_and_scrolls",
           "title": "Книги и свитки",
-          "tooltip": "Dungeon Master Guide",
+          "tooltip": "DnD5, Dungeon Master Guide",
           "description": "В городской библиотеке или в лаборатории мага обязательно наайдется что почитать. Ну или хотя бы посмотреть картинки",
           "fArticle": true,
+          "tags": "DnD, DnD5, d100",
           "schemes": [
             "list"
           ],
@@ -273,6 +280,7 @@ var RandomItems = {
           "description": "Если сотня безделушек из книги игрока D&D5 уже приелась, вот еще d100 вещиц.",
           "img": "100_alternative_trinkets_dnd5.jpg",
           "fArticle": true,
+          "tags": "DnD, DnD5, d100",
           "schemes": [
             "list"
           ],
@@ -311,9 +319,10 @@ var RandomItems = {
         {
           "name": "magicitemsDnD",
           "title": "Случайные магические вещи",
-          "tooltip": "Dungeon Masters Guide, Случайная выборка магических предметов",
-          "description": "Несколько таблиц по d100 предметов? которые могут попасться в очередном ссокровище или в магической лавке ближайшего городка.",
+          "tooltip": "DnD5, Dungeon Masters Guide, Случайная выборка магических предметов",
+          "description": "Несколько таблиц по d100 предметов, которые могут попасться в очередном ссокровище или в магической лавке ближайшего городка.",
           "fArticle": true,
+          "tags": "DnD, DnD5, d100",
           "schemes": [
             {
               "string": "list1 list2 list3 list4 list5 list6 list7 list8 list9",
@@ -390,6 +399,7 @@ var RandomItems = {
           "tooltip": "DM Gems, Уникальные сокровища",
           "description": "Иногда приключенцам попадаются поистине уникальные вещи. Вот d100 таких вариантов.",
           "fArticle": true,
+          "tags": "DnD, d100",
           "schemes": [
             "list"
           ],
@@ -405,9 +415,10 @@ var RandomItems = {
         {
           "name": "gems",
           "title": "Драгоценные камни",
-          "tooltip": "Dungeon Masters Guide, Таблицы сокровищ",
+          "tooltip": "DnD, Dungeon Masters Guide, Таблицы сокровищ",
           "description": "Самоцветы в шести таблицах, распределненные по цене.",
           "fArticle": true,
+          "tags": "DnD, DnD5, d6, d8, d10, d12",
           "schemes": [
             {
               "string": "list1 list2 list3 list4 list5 list6",
@@ -456,9 +467,10 @@ var RandomItems = {
         {
           "name": "art",
           "title": "Произведения искусства",
-          "tooltip": "Dungeon Masters Guide, Таблицы сокровищ",
+          "tooltip": "DnD5, Dungeon Masters Guide, Таблицы сокровищ",
           "description": "Пять таблиц с предметами, распределенными п оцене.",
           "fArticle": true,
+          "tags": "DnD, DnD5, d8, d10",
           "schemes": [
             {
               "string": "list1 list2 list3 list4 list5",
@@ -504,6 +516,7 @@ var RandomItems = {
           "tooltip": "Red Dice Diaries",
           "description": "d20 необычных ценных сокровищ.",
           "fArticle": true,
+          "tags": "Fantasy, History, d20",
           "url": "http://reddicediaries.com/random-things/random-things-you-might-find-in-a-treasure-trove/",
           "img": "20_treasure_items.jpg",
           "schemes": [
@@ -531,6 +544,7 @@ var RandomItems = {
           "tooltip": "DM Gems, Короткие сцены для привлечения внимания",
           "description": "Если темп игры просел, можно воспользоваться одним из этих d100 событий для встряски участников игры.",
           "fArticle": true,
+          "tags": "Fantasy, History, d100",
           "schemes": [
             "list"
           ],
@@ -549,6 +563,7 @@ var RandomItems = {
           "tooltip": "DM Gems, События в порту",
           "description": "Когда партию занесло в приморский город, может произойти какое-нибудь из этих d100 событий.",
           "fArticle": true,
+          "tags": "Fantasy, History, d100",
           "schemes": [
             "list"
           ],
@@ -567,6 +582,7 @@ var RandomItems = {
           "tooltip": "666 энкаунтеров",
           "description": "Целых 666 случайных событий истоическо-фентезийной направленности.",
           "fArticle": true,
+          "tags": "Fantasy, History",
           "schemes": [
             "list"
           ],
@@ -585,6 +601,7 @@ var RandomItems = {
           "tooltip": "1100 случайных встреч на улицах города. Составитель - Азар Мирдал",
           "description": "Огромная подборка из более чем тысячи случайных событий от самых обычных, до вторжения инопланетян, которые могли бы произойти в современной Москве.",
           "fArticle": true,
+          "tags": "Fantasy, History, Modernity",
           "schemes": [
             "list"
           ],
@@ -605,6 +622,7 @@ var RandomItems = {
           "img": "20_street_vendors.jpg",
           "url": "http://reddicediaries.com/random-things/random-things-street-vendors/",
           "fArticle": true,
+          "tags": "Fantasy, History, d20",
           "schemes": [
             "list"
           ],
@@ -625,6 +643,7 @@ var RandomItems = {
           "description": "d20 сообщений, которые можно получить, бороздя просторы вселенной.",
           "url": "http://reddicediaries.com/random-things/random-things-you-might-hear-on-the-comms/",
           "fArticle": true,
+          "tags": "Fantastic, Space, d20",
           "schemes": [
             "list"
           ],
@@ -644,6 +663,7 @@ var RandomItems = {
           "description": "На рыночной площади, в городском храме или даже во сне можно услышать странное пророчество. Наппример одно из этих d20 предсказаний.",
           "img": "20_mistery_forecasts.jpg",
           "fArticle": true,
+          "tags": "Fantasy, History, d20",
           "url": "http://reddicediaries.com/random-things/random-things-you-might-hear-in-a-doom-laden-prophecy/",
           "schemes": [
             "list"
@@ -663,6 +683,7 @@ var RandomItems = {
           "tooltip": "Red Dice Diaries - 20 вариантов",
           "description": "Бороздя просторы всленной можно наткнуться на одно из списка этих d20 вещей.",
           "fArticle": true,
+          "tags": "Fantastic, Space, d20",
           "img": "20_space_events.jpg",
           "schemes": [
             "list"
@@ -683,6 +704,7 @@ var RandomItems = {
           "description": "Порой приключенцев заносит в довольно неожиданные места. Вот d20 энкаунтеров на блотах.",
           "img": "20_swamp_events.jpg",
           "fArticle": true,
+          "tags": "Fantasy, History, d20",
           "url": "http://reddicediaries.com/random-things/random-things-you-might-encounter-in-a-swamp/",
           "schemes": [
             "list"
@@ -708,6 +730,7 @@ var RandomItems = {
           "title": "Комнаты в данже",
           "description": "В подземельях не одни только коридоры со сквозняками да заросшие паутиной комнаты. Если хочется разнообразить очередной данж, вот d20 вариантов.",
           "fArticle": true,
+          "tags": "Fantasy, History, Dungeon, d20",
           "tooltip": "DM Gems, Пустые комнаты тоже нужно описывать",
           "schemes": [
             "list"
@@ -727,6 +750,7 @@ var RandomItems = {
           "description": "Курган с могилой древнего воина, цитадель лича или склеп архимага, все они могут выглядеть по-разному. Традиционные d20 вариантов.",
           "tooltip": "Red Dice Diaries",
           "fArticle": true,
+          "tags": "Fantasy, History, Dungeon, d20",
           "url": "http://reddicediaries.com/random-things/random-things-to-find-in-a-tomb/",
           "schemes": [
             "list"
@@ -747,6 +771,7 @@ var RandomItems = {
           "img": "20_underdark_places.jpg",
           "description": "Подземье - огромная сеть пещер, что лежит прямо под ногами у жителей поверхности. Это странный и жестокий мир, и там можно встретить какое-нибудь из этих d20 мест.",
           "fArticle": true,
+          "tags": "DnD, Fantasy, Underdark, d20",
           "url": "http://reddicediaries.com/random-things/random-things-you-might-encounter-in-the-underdark/",
           "schemes": [
             "list"
@@ -767,6 +792,7 @@ var RandomItems = {
           "img": "20_strange_ports.jpg",
           "description": "Если партию занесло на экзотические острва, или они просто отправились на море, они могут зайти в один из этих d20 портов.",
           "fArticle": true,
+          "tags": "Fantasy, History, Sea, d20",
           "url": "http://reddicediaries.com/random-things/random-things-you-might-see-in-a-strange-port/",
           "schemes": [
             "list"
@@ -787,6 +813,7 @@ var RandomItems = {
           "img": "20_lost_worlds.jpg",
           "description": "Остались еще места, где время застыло, где обитают гигантские звери или представители давно забытых цивилизаций. Партия может случайно или не очень попасть в одно из этих d20 мест.",
           "fArticle": true,
+          "tags": "Fantasy, History, d20",
           "url": "http://reddicediaries.com/random-things/random-things-you-might-find-in-the-lost-world/",
           "schemes": [
             "list"
@@ -814,6 +841,7 @@ var RandomItems = {
           "tooltip": "http://tabletop-rpgs.tumblr.com",
           "description": "Сидя в таверне и пропивая свежедобытые сокровища группа приключенцев может наслушаться всякого разного.",
           "fArticle": true,
+          "tags": "Fantasy, History, d50",
           "url": "http://tabletop-rpgs.tumblr.com/post/163998923601/50-rumors-and-hooks",
           "img": "50_rumors_and_hooks.jpg",
           "schemes": [
@@ -831,8 +859,9 @@ var RandomItems = {
         {
           "name": "rumors_and_hooks_20",
           "title": "20 слухов и зацепок",
-          "description": "Еще несколько слухов ,что можно услышать в таверне или на рынке.",
+          "description": "Еще несколько слухов, что можно услышать в таверне или на рынке.",
           "fArticle": true,
+          "tags": "Fantasy, History, d20",
           "tooltip": "http://creaturespotlight.blogspot.ru/2015/03/20-random-rumors.html",
           "schemes": [
             "list"
@@ -854,6 +883,7 @@ var RandomItems = {
           "img": "20_noble_rumors.jpg",
           "url": "http://reddicediaries.com/random-things/random-things-that-you-might-overhear-at-a-ball/",
           "fArticle": true,
+          "tags": "Fantasy, History, d20",
           "schemes": [
             "list"
           ],
@@ -873,6 +903,7 @@ var RandomItems = {
           "img": "20_ghosthous_rumors.jpg",
           "description": "Этот дом, стоящий особняком на холме за городом всегда окружали нехорошие слухи. Особенно эти d20 слухов.",
           "fArticle": true,
+          "tags": "Fantasy, History, Mystic, d20",
           "url": "http://reddicediaries.com/random-things/random-things-that-you-might-hear-about-a-haunted-house/",
           "schemes": [
             "list"
@@ -900,6 +931,7 @@ var RandomItems = {
           "description": "У этой волшебной палочки 7 зарядов. Если вы её держите, вы можете действием потратить 1 заряд и выбрать цель в пределах 120 футов. Цель должна быть существом, предметом или точкой в пространстве. Бросьте к100 и определите последствия с помощью таблицы.",
           "descriptionMore": "<p>Если эффект накладывает заклинание, Сл спасброска от него равна 15. Если обычно у этого заклинания есть дистанция в футах, то эта дистанция ста овится равной 120 футам.</p><p>Если эффект покрывает площадь, то вы должнысделать центром заклинания цель и включить её в качестве цели заклинания. Если эффект может воздействовать на несколько разных субъектов, Мастер случайным образом выбирает, кто станет целью.</p><p>Палочка ежедневно восстанавливает 1к6 + 1 заряд на рассвете. Если вы истратили последний заряд в палочке, бросьте к20. Если выпадет «1», палочка рассыплется в пыль и уничтожится.</p>",
           "fArticle": true,
+          "tags": "DnD, DnD5, d100",
           "tooltip": "Dungeoun Master Guide, Эффекты волшебной палочки чудес",
           "schemes": [
             "list"
@@ -918,6 +950,7 @@ var RandomItems = {
           "title": "Дополнительные ффекты жезла чудес",
           "description": "Когда стандартная сотня эффектов перестанет удивлять, настанет время перейти к новым d100 эффектов.",
           "fArticle": true,
+          "tags": "DnD, DnD5, d100",
           "tooltip": "DM Gems, Альтернативные 'чудеса' для Жезла Чудес",
           "schemes": [
             "list"
@@ -934,10 +967,11 @@ var RandomItems = {
         {
           "name": "potion_mix",
           "title": "Смешивание зелий",
-          "tooltip": "Dungeon Masters Guide, Ношение и использование магическихпредметов",
+          "tooltip": "DnD5, Dungeon Masters Guide, Ношение и использование магическихпредметов",
           "description": "Персонаж может выпить одно зелье, пока находится под действием другого, или попытаться смешать несколько зелий в одной ёмкости. В этом случае, необычные ингредиенты, используемые в создании зелий, могут привести к непредсказуемым последствиям.",
           "descriptionMode": "Когда персонаж смешивает две зелья вместе, вы можете бросить кость и сверить результат с таблицей «смешивание зелий». Если персонаж смешивает более двух зелий, то совершайте бросок повторно для каждого последующего зелья, комбинируя результаты. Если эффекты не проявляются сразу, то оповещайте о них только тогда, когда они становятся очевидны.",
           "fArticle": true,
+          "tags": "DnD, DnD5, d100",
           "schemes": [
             "list"
           ],
@@ -956,6 +990,7 @@ var RandomItems = {
           "tooltip": "DM Gems, Алхимические промашки",
           "description": "Порою эксперменты в лаборатории заканчивают не очень успешно, это может привести к одному из подобныж d100 результатов.",
           "fArticle": true,
+          "tags": "DnD, Alchemy, d100",
           "schemes": [
             "list"
           ],
@@ -974,6 +1009,7 @@ var RandomItems = {
           "description": "Магия чародея исходит от диких сил хаоса, лежащих в основе мироздания. Чародей, возможно, подвергся воздействию грубой магии в той или иной форме. Возможно, она просочилась через портал, ведущий в Лимбо, Стихийные Планы или таинственный Дальний Предел. Может быть, чародей был благословлен могущественной феей или отмечены демоном. Или его магия может быть случайностью при рождении, без очевидной причины. Вне зависимости от еѐ происхождения, хаотическая магия бурлит внутри чародея, готовая вырваться наружу.",
           "descriptionMore": "Когда чародей выбирает Дикую магию в качестве источника, его колдовство может вызвать волны дикой магии. Сразу после накладывания заклинания как минимум 1 уровня Мастер может попросить бросить d20. Если выпадает 1, следует бросить кость по таблице «Волна дикой магии» для создания случайного магического эффекта. Волна может возникать только один раз за ход. Если эффект волны является заклинанием, он слишком непредсказуем, чтобы его можно было модифицировать метамагией. Если заклинание-эффект в обычных обстоятельствах требует концентрацию, то в данном случае оно не требует концентрацию и длится свою максимальную длительность.",
           "fArticle": true,
+          "tags": "DnD, DnD5, d100",
           "tooltip": "DND 5, Players Hand Book, 50 эффктов дикой магии Чародея",
           "schemes": [
             "list"
@@ -991,6 +1027,7 @@ var RandomItems = {
           "name": "wonder_shield",
           "title": "Щит Чудес",
           "fArticle": true,
+          "tags": "DnD, d100",
           "tooltip": "Из комикса 'Гоблины: жизнь их глазами' [Goblins: Life through Their Eyes]",
           "description": "Щит Чудес - артефакт, вызывающий один из случайных d100 эффектов.",
           "schemes": [
@@ -1009,6 +1046,7 @@ var RandomItems = {
           "name": "magical_diseases",
           "title": "Магические болезни",
           "fArticle": true,
+          "tags": "Fantasy, d12",
           "img": "12_magical_illnesses.jpg",
           "url": "https://blogsanddragons.tumblr.com/post/137247937555/12-random-magical-diseases",
           "tooltip": "blogsanddragons.tumblr.com - 12 Random Magical Diseases",
@@ -1036,6 +1074,7 @@ var RandomItems = {
           "name": "char_trait",
           "title": "Черта характера",
           "tooltip": "D&D 5e, Player's Handbook",
+          "tags": "DnD, DnD5",
           "fArticle": true,
           "schemes": [
             "list"
@@ -1054,6 +1093,7 @@ var RandomItems = {
           "name": "char_ideal",
           "title": "Идеал",
           "tooltip": "D&D 5e, Player's Handbook",
+          "tags": "DnD, DnD5",
           "fArticle": true,
           "schemes": [
             "list"
@@ -1072,6 +1112,7 @@ var RandomItems = {
           "name": "char_bond",
           "title": "Привязанность",
           "tooltip": "D&D 5e, Player's Handbook",
+          "tags": "DnD, DnD5",
           "fArticle": true,
           "schemes": [
             "list"
@@ -1090,6 +1131,7 @@ var RandomItems = {
           "name": "char_flaw",
           "title": "Изъян",
           "tooltip": "D&D 5e, Player's Handbook",
+          "tags": "DnD, DnD5",
           "fArticle": true,
           "schemes": [
             "list"
