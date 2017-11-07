@@ -298,7 +298,7 @@ var RandomItems = {
           "title": "100 предметов искусства, исторических артефактов и разного лута",
           "tooltip": "RPGs like D&D - 100 Art Objects, Historical Artifacts, and Miscellaneous Loot",
           "url": "http://tabletop-rpgs.tumblr.com/post/160927551628/100-art-objects-historical-artifacts-and",
-          "description": "Еще одна сотня вещичек, которые можно найти в приключениях.",
+          "description": "Еще одна сотня вещичек, которые можно найти в приключениях. На этот раз это предметы искусства.",
           "img": "100_Art_Objects_Loot.jpg",
           "fArticle": true,
           "tags": "DnD, things, d100",
