@@ -340,8 +340,8 @@ var RandomItems = {
           "title": "100 готичных безделушек",
           "tooltip": "Red Dice Diaries - Random Things: Gothic horror trinkets for D&D 5E",
           "url": "http://reddicediaries.com/random-things/random-things-gothic-horror-trinkets-for-dd-5e/",
-          "description": "Вещички для приключения в стиле ужастика или готики.",
-          "img": "100_useless_but_interesting_trinkets.jpg",
+          "description": "Вещички для приключения по ДнД в стиле ужастика или готики.",
+          "img": "100_gothic_trinkets.jpg",
           "fArticle": true,
           "tags": "DnD, things, d100",
           "schemes": [
