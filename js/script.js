@@ -186,17 +186,17 @@ function getRandomItem(){
   var aMiddleList = [];
 
 
-    for(var n in sItemsLine) {
-    var type = sItemsLine[n].trim().split(" ");
-    //getNumerousItems(items, type[0], type[1], number);
+  for(var n in sItemsLine) {
+  var type = sItemsLine[n].trim().split(" ");
+  //getNumerousItems(items, type[0], type[1], number);
 
-    /**/
-    //for(var r=0; r<number; r++) {
-      aMiddleList = aMiddleList.concat(generateRandomItem(items, type[0], type[1], number));
-      //table+="<tr><td>"+formatLine(word)+"</td></tr>";
-    //}
-    /**/
-    }
+  /**/
+  //for(var r=0; r<number; r++) {
+    aMiddleList = aMiddleList.concat(generateRandomItem(items, type[0], type[1], number));
+    //table+="<tr><td>"+formatLine(word)+"</td></tr>";
+  //}
+  /**/
+  }
   aMiddleList = shuffle(aMiddleList);
   for(var i=0; i<number; i++) {
     //table+="<tr><td>"+formatLine(aMiddleList[i])+"</td></tr>";
@@ -407,8 +407,7 @@ function generateRandomItem(src, type, subtype, nCount) {
 
   return aResult;
 }
-// init page controlls
-make_page();
+
 
 // open/close combobox
 $("body").on('click', ".combo_box_title, .combo_box_arrow", function(){
@@ -567,12 +566,14 @@ function onSelectItemPress(src) {
   //location.hash = (leng==1)? sHash : "";
   if (leng==1) {
     location.hash = sHash;
-	sTitleItem = " - " + $("#selector").find("input:checked + label[for] ").text();
+    sTitleItem = " - " + $("#selector").find("input:checked + label[for] ").text();
+    //scrollTo();
   } else if ($("input:checked[data-root]").length == 1) {
-	sHashVal = $("input:checked[data-root]").eq(0).attr("data-root");
-	sHash = "item="+sHashVal;
-	location.hash = sHash;
-	sTitleItem = " - " + $("#selector").find("input:checked + label[for] ").eq(0).text();
+    sHashVal = $("input:checked[data-root]").eq(0).attr("data-root");
+    sHash = "item="+sHashVal;
+    location.hash = sHash;
+    sTitleItem = " - " + $("#selector").find("input:checked + label[for] ").eq(0).text();
+    //scrollTo();
   } else {
     history.pushState("", document.title, window.location.pathname);
   }
@@ -585,6 +586,14 @@ function onSelectItemPress(src) {
 
 
   return false;
+}
+function scrollTo(){
+  if(location.hash.length>2){
+    $("#selector .combo_box_content").slideUp();
+   $('html, body').animate({
+        scrollTop: $("#result").offset().top
+    }, 100);
+  }
 }
 
 $("body").on('click', ".combo_box input", function(event){
@@ -715,5 +724,8 @@ $("body").on('click', "#info", function(){
         $("#go").click();
       }
   });
-
+  
+  // init page controlls
+  make_page();
+  scrollTo()
 });
