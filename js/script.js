@@ -427,7 +427,7 @@ $("body").on('click', ".combo_box_title, .combo_box_arrow", function(){
 function onSelectItemPress(src) {
   var d_root='', d_parent='', trig=true;
 
-  var attrFor = src.attr("for"); // $("input#"+attrFor)
+  var attrFor = src.attr("for").trim(); // $("input#"+attrFor)
   d_root = $("input#"+attrFor).attr("data-root");
   d_parent = $("input#"+attrFor).attr("data-parent");
   if($("input#"+attrFor).prop("checked"))
